@@ -51,7 +51,7 @@ A typo in the footer is Severity 4 but could be Priority 1 if it is on a press r
 
 ## Checklist before you file
 
-- [ ] Title states the defect as a fact, not a guess ("Login accepts wrong password", not "login seems broken?")
+- [ ] Title states the defect as a fact, not a guess ("Guests field accepts negative numbers", not "guests field seems broken?")
 - [ ] Steps reproduce it on a clean environment
 - [ ] Expected **and** actual results both present
 - [ ] Severity and priority both set, and distinct

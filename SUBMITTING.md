@@ -43,7 +43,10 @@ Fill in the files that are already there. Don't create new ones, don't rename an
 
 Each task folder has its own README with the assignment and the grading criteria. Read it first.
 
-Don't commit `northwindsupply.db` — it's gitignored on purpose. Everyone builds their own from the setup script.
+Two things not to commit:
+
+- **`northwindsupply.db`** — gitignored on purpose. Everyone builds their own from `setup.sql`.
+- **Any change to `scenario/rsvp-portal/index.html`** — Task 3 assesses that app. If you modify it, your findings stop being reproducible by your reviewer, and the reviewer checks. If you've edited it by accident: `git checkout scenario/`
 
 ### 4. Commit as you go
 

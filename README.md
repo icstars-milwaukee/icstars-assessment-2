@@ -26,7 +26,7 @@ All three go on the same branch and into the same pull request. Budget about 45 
 | --- | --- | --- | --- |
 | [**Task 1** — SQL JOIN Query](assessment-2/task-1) | DA.SK1–3 | Query the `northwindsupply` database for each user's order count | `query.sql`, `submission.md` |
 | [**Task 2** — SDLC Diagram](assessment-2/task-2) | SD.KU1, SD.SK1, SD.SK2 | Map the SDLC phases on a swimlane, show Agile vs. Waterfall | `submission.md` |
-| [**Task 3** — Test Plan + Defect Log](assessment-2/task-3) | QA.SK1, QA.SK2 | Write 3 Given/When/Then test cases and log a defect | `test-plan.md`, `defect-log.md` |
+| [**Task 3** — Test Plan + Defect Log](assessment-2/task-3) | QA.SK1, QA.SK2 | Test a real RSVP web app, write 3 Given/When/Then test cases, log the defects you find | `test-plan.md`, `defect-log.md` |
 
 Each task folder has its own README with the full assignment, the proficiency criteria, and the common errors that cost points. **Read the task README before you start that task** — it tells you exactly what the reviewer is looking for.
 
@@ -49,6 +49,9 @@ assessment-2/
     test-plan.md             ← blank, you fill it in
     defect-log.md            ← blank, you fill it in
     templates/               clean reference copies of both templates
+scenario/                  the app you test in Task 3 — don't edit it
+  README.md                  the client, the project, and the requirements
+  rsvp-portal/index.html     open this in a browser
 .github/
   PULL_REQUEST_TEMPLATE.md   loads automatically when you open your PR
   ISSUE_TEMPLATE/            defect template, if you file issues
@@ -75,5 +78,7 @@ The generated `.db` file is gitignored — don't commit it. Everyone builds thei
 - **Fill in the files that are already there.** Don't create new files or rename existing ones — the reviewer looks in specific places.
 - **Submit real work.** Paste the output your query actually returned. Cite the real commit, the real sprint. Approximated evidence loses the standard faster than an incomplete answer does.
 - **Flag what you couldn't finish.** Every submission file has a notes section. Naming a gap honestly is treated as a strength — on Task 2 it's explicitly part of the standard.
+
+- **Don't edit `scenario/rsvp-portal/index.html`.** Task 3 assesses that app. Change it and your findings stop being reproducible.
 
 Stuck on git rather than on the assessment? The [Common problems](SUBMITTING.md#common-problems) section covers committing to `main` by accident, rejected pushes, and branching off the wrong place.
