@@ -12,12 +12,12 @@ List the phases in the order they happen. **Add or remove rows as you need** —
 
 | # | Phase name | What happens in it | What comes out of it |
 | --- | --- | --- | --- |
-| 1 | | | |
-| 2 | | | |
-| 3 | | | |
-| 4 | | | |
-| 5 | | | |
-| 6 | | | |
+| 1 |Requirements |gather detailed functional and non-functional needs from stakeholders and document them |helps support the all around project and jump starts the layout for the project |
+| 2 |Design | transforms requirements into technical blueprint |Gives outlook to what the final product can be, is pretty much the baseline of the project |
+| 3 |Implementation | write the actual source code, build individual components, and perform initial unit testing |it pushes the progression of the project, allow you to see any possible defects early |
+| 4 |Testing |run quality assurance checks, integration tests, and user acceptance testing |at this point it's all trial an error, you should be getting substantial about of feedback rather it be defects or bugs |
+| 5 |Deployment | release the fully tested and approved software into the production environment for end users. |Product is finish and presented for use. |
+| 6 |Maintenance |performance, fix post-release bugs, and roll out feature updated over time |assurance of the product and constant support that the tool is still functioning |
 
 **Does anything happen after the last phase? Say what, and where it goes.**
 
