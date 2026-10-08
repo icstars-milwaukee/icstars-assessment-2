@@ -18,3 +18,5 @@ GO
 
 
 -- YOUR QUERY HERE
+select * from users, orders
+join or 

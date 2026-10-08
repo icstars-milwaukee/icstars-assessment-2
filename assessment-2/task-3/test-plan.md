@@ -34,33 +34,38 @@
 
 | Item | Value |
 | --- | --- |
-| File / URL under test | |
-| Browser + version | |
-| Operating system | |
-| Device / screen size | |
-| Developer tools used | *e.g. Console, Elements — and did the Console show anything?* |
+| File / URL under test | rsvp-portal/index.html |
+| Browser + version | VSC |
+| Operating system | Win 11|
+| Device / screen size | 1920x1080 @ 48.04HZ|
+| Developer tools used | Visual Studio Code HTML Previewer |
 
 ## 3. Test data
 
 Literal values, not descriptions. These are the values your reviewer will type in to reproduce your cases. Add rows for whatever else you used.
 
 | Field | Value you used |
-| --- | --- |
-| | |
-| | |
-| | |
-| | |
+| Name | "X" ^1000 / 1000 instances of "X"|
+|Email | "X" ^1000 / 1000 instances of "X"|
+|Session| "X" ^1000 / 1000 instances of "X" |
+|Dietary Notes |"X" ^1000 / 1000 instances of "X"|
+|Guests | 6 |
 | | |
 
 ## 4. Entry / exit criteria
 
 **Entry** — what has to be true before testing can start:
 
->
+Site cache must be cleared, Must be at initial start point
 
 **Exit** — what has to be true before you'd sign this off for Saturday:
 
->
+ Needs to be a character limit on each field
+ Needs to have a hard limit on guests: <= 6
+ Needs EAD / "@__________.com" requirment on email field
+ Needs token exclusive RSVP number and generation/storage system instead of "0000" on any value
+Needs to return info fields @ end as something other than plain text
+
 
 ---
 
@@ -73,11 +78,11 @@ Literal values, not descriptions. These are the values your reviewer will type i
 | Field | Value |
 | --- | --- |
 | Test case ID | TC-001 |
-| Traces to | REQ- |
-| Type | Positive / Negative / Boundary / Validation |
-| Priority | High / Medium / Low |
-| Preconditions | |
-| Test data | |
+| Traces to | REQ-06, REQ-01 |
+| Type |    Boundary |
+| Priority | Very Low |
+| Preconditions | Changing html structure |
+| Test data |Data @ End returned as plain text, could be problematic, especially with unlimited textrate: e.g able to enter 1,000 characters in a field and have it returned on next page |
 
 **Given**
 **When**
