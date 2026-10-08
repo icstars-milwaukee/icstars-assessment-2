@@ -1,7 +1,7 @@
 # Task 1 Submission — SQL JOIN Query
 
-**Apprentice name:**
-**Date:**
+**Apprentice name:** Jose
+**Date:** 10/8/2026
 **Database:** `northwindsupply`
 
 ---
@@ -10,14 +10,34 @@
 
 Paste the exact output of your query here, **column headers included.**
 
+The query I used is below:
+```SQL
+SELECT users.name, COUNT(orders.id) total_orders
+FROM users
+JOIN orders on orders.user_id = users.id
+GROUP BY users.id, users.name;
+```
+
+The output looks like this:
+<br>
+<img width="300" alt="image" src="https://github.com/user-attachments/assets/e3eaf1e3-2940-42f7-ab15-5ac5e26f7ecf" />
+
+
 In SSMS: press **Ctrl+T** (Results to Text), then **F5** to run, then copy the Results pane. If you'd rather stay in the grid, select your rows and press **Ctrl+Shift+C** (Copy with Headers) — plain Ctrl+C drops the column names, which is the usual reason a paste comes out nameless.
 
-```
+
+| name | total_orders |
+|---|---|
+| Maria Alvarez | 5 |
+| Darnell Brooks | 4 |
+| Priya Raman | 3 |
+| Tomas Nowak | 2 |
+| Grace Okonkwo | 1 |
+| Hector Reyes | 4 |
 
 
 
 
-```
 
 ---
 
@@ -31,9 +51,9 @@ Explain what this query is for, in your own words. A few sentences is enough. Co
 
 Write your explanation below:
 
->
->
->
+> This query checks how many orders each person has made.
+> A sales manager would find this information valuable.
+> The join is joining users to their orders based on the user ID.
 
 ---
 
