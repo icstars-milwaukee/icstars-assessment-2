@@ -1,7 +1,7 @@
 # Task 2 Submission — SDLC Swimlane Diagram
 
-**Apprentice name:**
-**Date:**
+**Apprentice name:** LaQuesha Bell
+**Date:** 10/8/2026
 **Project:**
 
 ---
@@ -11,16 +11,10 @@
 List the phases in the order they happen. **Add or remove rows as you need** — the number of rows below is not the answer, and working out how many there are is part of the task.
 
 | # | Phase name | What happens in it | What comes out of it |
-| --- | --- | --- | --- |
-| 1 | | | |
-| 2 | | | |
-| 3 | | | |
-| 4 | | | |
-| 5 | | | |
-| 6 | | | |
+| 1 | Planning | 2 | Analysis || 3 | Design | 4 | Coding | 5 |Designing | 6 |Testing | 7| Maintenance
 
 **Does anything happen after the last phase? Say what, and where it goes.**
-
+Yes, after the end of the step 7 the cycle contuinues to loop and repeate itself.
 >
 
 ---
@@ -33,13 +27,12 @@ Fill in **either** the table or the Mermaid diagram. Put your own phase names in
 
 Replace the blank column headers with your phases. The lanes down the left are a starting suggestion — change them if your project's roles are different.
 
-| Lane (role) | | | | | | |
+| Lane (role) | Discovery |Planning |Design |Developing |
 | --- | --- | --- | --- | --- | --- | --- |
-| Product / BA | | | | | | |
-| Design | | | | | | |
-| Development | | | | | | |
-| QA | | | | | | |
-| Ops / Release | | | | | | |
+| Product / BA |Gather requirements |Define scope & backlg |Define scope & backlog | Review UX concepts| Clarify stories |
+| Design |User research | Create wireframes |Produce UI designs | Support developers | | 
+| QA |Test strategy |Test planning |Design review |Prepare test cases | | |
+| Ops /Release | Environment assessment |Deployment planning | Infrastructure design| Configure environments| 
 
 Leave a cell blank if that role is genuinely idle at that point. Idle cells are information, not gaps.
 
@@ -188,12 +181,12 @@ Neither model is a mistake. Knowing when each one fits is the point of comparing
 
 Required. Name **specific, real** things from your project: the repo, the branch, a commit, a sprint, a story, a defect, a ceremony you actually attended. A reviewer should be able to go look at what you cite.
 
->
->
+> In the skills repo there are real list of items that we are within the sdlc and how they work in specific terms
+> 
 >
 
 **Where is your project *not* yet fully Agile?** Naming an honest gap is part of the standard, not a deduction.
-
+Understanding the RFP.  Molson didn't select our project, but the team keep going with the same items and not going back to the drawing board to see where we can do better.
 >
 
 ---
