@@ -12,16 +12,16 @@ List the phases in the order they happen. **Add or remove rows as you need** —
 
 | # | Phase name | What happens in it | What comes out of it |
 | --- | --- | --- | --- |
-| 1 | | | |
-| 2 | | | |
-| 3 | | | |
-| 4 | | | |
-| 5 | | | |
-| 6 | | | |
+| 1 |Planning |define the problems, goals, scope, resources and timeline. | project plan|
+| 2 |Requirments |idnetify what the software needs and what users need | requirments/userstories|
+| 3 |design |design how the software, database and users interface will be structred. |design/system set up |
+| 4 | development|developers write and build the software |working code |
+| 5 |testing |test the software and find defects or problems |test results / defect reports |
+| 6 |deployment |release the software so users can use it  | deployed software |
 
 **Does anything happen after the last phase? Say what, and where it goes.**
 
->
+> Maintenece, you need to constantly fix bugs and improve software by doing updates to fixes.
 
 ---
 
@@ -33,13 +33,13 @@ Fill in **either** the table or the Mermaid diagram. Put your own phase names in
 
 Replace the blank column headers with your phases. The lanes down the left are a starting suggestion — change them if your project's roles are different.
 
-| Lane (role) | | | | | | |
+| Lane (role) | planning | requirments | design | development | testing | deployment |
 | --- | --- | --- | --- | --- | --- | --- |
-| Product / BA | | | | | | |
-| Design | | | | | | |
-| Development | | | | | | |
-| QA | | | | | | |
-| Ops / Release | | | | | | |
+| Product / BA | define project goals and scope | gather and document requirments | review deisgn | gather feedback |
+| Design | create system design or UI |
+| Development | writes and builds software |
+| QA | test the software and identify defects | regression testing |
+| Ops / Release | deploy/release the software | monitor and maintain the release |
 
 Leave a cell blank if that role is genuinely idle at that point. Idle cells are information, not gaps.
 
@@ -84,11 +84,11 @@ flowchart LR
 
 **Where does work have to stop and wait for approval before it can continue? Mark those points on your diagram and list them here.**
 
->
+> In Waterfall work may have to wait for approval after requirements and design before the next phase can begin. Development may not begin until the requirements and design have been reviewed and approved.
 
 **Does work ever travel backwards in this model? When, and what does that cost?**
 
->
+>Yes. If maintenance finds a problem with the requirements or design, the team may have to go back to an earlier phase like testing. This can cause delays because completed work may need to be changed and later phases might need to be repeated.
 
 ---
 
@@ -100,10 +100,10 @@ The same phases from Part 1. Work out for yourself how the arrangement changes �
 
 Build the grid yourself. Use whatever columns make the Agile arrangement clear; they do not have to be the same columns you used in Part 2.
 
-| Lane (role) | | | |
+| Lane (role) | sprint 1 | sprint 2 | sprint 3 |
 | --- | --- | --- | --- |
-| Product / BA | | | |
-| Design | | | |
+| Product / BA | prioritize requirements and user stories | review feedback and prioritize next work  |Prioritize next stories and improvements  |
+| Design | design Sprint 1 feature  |build Sprint 2 feature |build Sprint 3 feature |
 | Development | | | |
 | QA | | | |
 | Ops / Release | | | |
