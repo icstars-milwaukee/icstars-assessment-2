@@ -180,7 +180,7 @@ flowchart LR
 
 Neither model is a mistake. Knowing when each one fits is the point of comparing them.
 
->
+>Building a bridge is a better candidate for waterfall. It is a project that takes a long time but needs to move in strict phases, and you should not be going backward. You can't decide you don't like how a bridge looks halfway through the building of the bridge. The design should have been finailized long before building. Waterfall is better suited for things that are not as rapidly changing and unpredictable as agile.
 
 ---
 
