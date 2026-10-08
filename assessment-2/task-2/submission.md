@@ -100,13 +100,13 @@ The same phases from Part 1. Work out for yourself how the arrangement changes â
 
 Build the grid yourself. Use whatever columns make the Agile arrangement clear; they do not have to be the same columns you used in Part 2.
 
-| Lane (role) | | | |
-| --- | --- | --- | --- |
-| Product / BA | | | |
-| Design | | | |
-| Development | | | |
-| QA | | | |
-| Ops / Release | | | |
+| Lane (role) |Requirements |Design |Development |Testing |Deployment |Review |
+| --- | --- | --- | --- | --- | --- | --- |
+| Product / BA |x | | | | |x |
+| Design | |x | | | | |
+| Development | |x |x | | | |
+| QA | | | | x| | |
+| Ops / Release | | |x |x |x |x |
 
 ### Mermaid version
 
@@ -149,11 +149,11 @@ flowchart LR
 
 **Where does work stop and wait here, if anywhere? How does that compare to Part 2?**
 
->
+>In agile, things are basically always moving. Agile has more an emphasis on doing things as opposed to moving one phase at a time and creating documentation like in waterfall.
 
 **Which lanes are busy at the same time, and which sit idle?**
 
->
+>In agile, requirements and review is sort of happening all the time. Client involvement is pretty important in agile, as the client is ideally giving feedback throughout development. So if there is a phase that overlaps a lot, its requirements, and review as well since the client is giving a lot of feedback.
 
 ---
 
@@ -174,7 +174,7 @@ flowchart LR
 
 **In one or two sentences â€” what is the single most important difference, and why does it matter?**
 
->
+>Waterfall moves one phase at a time and should not go backward. Agile is more open to moving forward or backward depending on the client needs. 
 
 **Name a project where Waterfall would be the better choice, and say why.**
 

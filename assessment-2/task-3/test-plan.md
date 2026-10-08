@@ -1,7 +1,7 @@
 # Task 3 Submission — Test Plan
 
-**Apprentice name:**
-**Date:**
+**Apprentice name:** Jose Romero
+**Date:** 10/8/2026
 **System under test:** Riverside Community Association RSVP Portal — `scenario/rsvp-portal/index.html`
 **Release context:** v1 in staging, meetup is Saturday October 11, not yet public
 
@@ -22,11 +22,11 @@
 
 **In scope** — what your testing covers:
 
->
+>I am testing everything in the requirements (requirements 1-6).
 
 **Out of scope** — what it deliberately does not cover, and why:
 
->
+>I am not testing anything that is not listed in the requirements.
 
 *(The absence of a backend is a known v1 limitation. If you're putting it out of scope, say so here rather than logging it as a defect.)*
 
@@ -34,11 +34,11 @@
 
 | Item | Value |
 | --- | --- |
-| File / URL under test | |
-| Browser + version | |
-| Operating system | |
-| Device / screen size | |
-| Developer tools used | *e.g. Console, Elements — and did the Console show anything?* |
+| File / URL under test |http://127.0.0.1:5500/scenario/rsvp-portal/index.html |
+| Browser + version |Latest Google Chrome |
+| Operating system |Latest Windows 11 |
+| Device / screen size |Idk |
+| Developer tools used | Chrome developer tools |
 
 ## 3. Test data
 
@@ -46,21 +46,21 @@ Literal values, not descriptions. These are the values your reviewer will type i
 
 | Field | Value you used |
 | --- | --- |
-| | |
-| | |
-| | |
-| | |
-| | |
+|Name |Jose Romero|
+|Email |jose@example.com |
+|Guest |1 |
+|Session |Morning (9am) |
+|Dietary notes |No fish |
 
 ## 4. Entry / exit criteria
 
 **Entry** — what has to be true before testing can start:
 
->
+>All fields listed above must be present as input fields on the form.
 
 **Exit** — what has to be true before you'd sign this off for Saturday:
 
->
+>All tests cases must pass.
 
 ---
 
