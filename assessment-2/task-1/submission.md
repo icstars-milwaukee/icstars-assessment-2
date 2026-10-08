@@ -23,18 +23,19 @@ The output looks like this:
 
 In SSMS: press **Ctrl+T** (Results to Text), then **F5** to run, then copy the Results pane. If you'd rather stay in the grid, select your rows and press **Ctrl+Shift+C** (Copy with Headers) — plain Ctrl+C drops the column names, which is the usual reason a paste comes out nameless.
 
-```
-name	(No column name)
-Maria Alvarez	5
-Darnell Brooks	4
-Priya Raman	3
-Tomas Nowak	2
-Grace Okonkwo	1
-Hector Reyes	4
+
+| name | total_orders |
+|---|---|
+| Maria Alvarez | 5 |
+| Darnell Brooks | 4 |
+| Priya Raman | 3 |
+| Tomas Nowak | 2 |
+| Grace Okonkwo | 1 |
+| Hector Reyes | 4 |
 
 
 
-```
+
 
 ---
 
