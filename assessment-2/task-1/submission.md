@@ -1,7 +1,7 @@
 # Task 1 Submission — SQL JOIN Query
 
-**Apprentice name:**
-**Date:**
+**Apprentice name:** Amir
+**Date:** 10/08/2026
 **Database:** `northwindsupply`
 
 ---
@@ -14,7 +14,13 @@ In SSMS: press **Ctrl+T** (Results to Text), then **F5** to run, then copy the R
 
 ```
 
-
+name	numberOfOrders
+Darnell Brooks	4
+Grace Okonkwo	1
+Hector Reyes	4
+Maria Alvarez	5
+Priya Raman	3
+Tomas Nowak	2
 
 
 ```
@@ -31,9 +37,9 @@ Explain what this query is for, in your own words. A few sentences is enough. Co
 
 Write your explanation below:
 
->
->
->
+> The answer to the number of orders each user has placed.
+>They want to know how different user spend on which order and how much and/or how many.
+>get the user's table and join with order's table on id from user and user_id from order's table.
 
 ---
 

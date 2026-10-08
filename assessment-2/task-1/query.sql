@@ -2,8 +2,8 @@
    Task 1 - SQL JOIN Query
    Database: northwindsupply
 
-   Apprentice name: ____________________
-   Date: ____________________
+   Apprentice name: Amir Husseini
+   Date: 10/08/2026
 
    GOAL: show each user's name and the number of orders they have placed,
          grouped by user.
@@ -18,3 +18,10 @@ GO
 
 
 -- YOUR QUERY HERE
+SELECT
+    u.name,
+    COUNT(o.id) AS numberOfOrders
+FROM Users u
+JOIN Orders o
+    ON u.id = o.user_id
+GROUP BY u.name;
