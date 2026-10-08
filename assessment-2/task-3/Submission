@@ -1,0 +1,37 @@
+Task 1:
+SELECT
+    u.name AS [User Name],
+    COUNT(o.id) AS [Order Count]
+FROM users u
+JOIN orders o
+    ON u.id = o.user_id
+    Group by u.name
+ORDER BY u.name;
+
+
+
+Task 2:| # | Phase name | What happens in it | What comes out of it | 
+| 1 | Planning | 2 | Analysis || 3 | Design | 4 | Coding | 5 |Designing | 6 |Testing | 7| Maintenance
+Ater the end of step 7, the system contiues to loop an start all over.
+
+
+| Lane (role) | Discovery |Planning |Design |Developing |
+| --- | --- | --- | --- | --- | --- | --- |
+| Product / BA |Gather requirements |Define scope & backlg |Define scope & backlog | Review UX concepts| Clarify stories |
+| Design |User research | Create wireframes |Produce UI designs | Support developers | | 
+| QA |Test strategy |Test planning |Design review |Prepare test cases | | |
+| Ops /Release | Environment assessment |Deployment planning | Infrastructure design| Configure environments| 
+
+In the live area of our projects there are task that will show the swinlane and how each team meber should work.
+The Jira board will folow what's happening in the repos
+We are active in the design phhase and from deisng to maintenance, they are sitting still as we don't havbe a full project
+In agile there are many parts being worked on at the same time (Ventura) and I am on waterfall (working on what Molson said and not beuilding what I think they said).
+Our team really did skip waterfall practices and pull all our efforts on agile, building and designing at the same time.  We have a completed project with no design elements nor clarity 
+
+
+taks 3:
+I coudn't complete task 3 in the Github, none of the links connected (even in the reader)
+when you enter the guest accompaning they don't have a set number of visitors
+The person working on the form doesn't get an email to confirm
+Confirmation numbers are nbot specific so this could lead to problems when indidviduals share their number during check in.
+
