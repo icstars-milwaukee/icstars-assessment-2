@@ -1,7 +1,7 @@
 # Task 3 Submission — Test Plan
 
-**Apprentice name:**
-**Date:**
+**Apprentice name:** Amir
+**Date:** 10/08/2026
 **System under test:** Riverside Community Association RSVP Portal — `scenario/rsvp-portal/index.html`
 **Release context:** v1 in staging, meetup is Saturday October 11, not yet public
 
@@ -98,6 +98,82 @@ Literal values, not descriptions. These are the values your reviewer will type i
 
 ---
 
+### TC-001 — Successful RSVP Submission
+
+| Field | Value |
+| --- | --- |
+| Test case ID | TC-001 |
+| Traces to | REQ-01 |
+| Type | Positive |
+| Priority | High |
+| Preconditions | RSVP form is open |
+| Test data | Full Name: Amir Husseini, Email: amir@test.com, Guests: 2 |
+
+**Given** the RSVP form is open
+
+**When** I enter "Amir Husseini", "amir@test.com", and 2 guests and click Submit
+
+**Then** a confirmation message is displayed showing the information I submitted
+
+| Field | Value |
+| --- | --- |
+| Actual result | Pass|
+| Status | done |
+| Executed by / date | Amir Husseini |
+| Defect raised | |
+
+---
+
+### TC-002 — Full Name Is Required
+
+| Field | Value |
+| --- | --- |
+| Test case ID | TC-002 |
+| Traces to | REQ-02 |
+| Type | Validation |
+| Priority | High |
+| Preconditions | RSVP form is open |
+| Test data | Full Name: blank, Email: amir@test.com, Guests: 1 |
+
+**Given** the RSVP form is open
+
+**When** I leave the Full Name field blank and click Submit
+
+**Then** the form should not submit and an error message should be displayed
+
+| Field | Value |
+| --- | --- |
+| Actual result | Fail |
+| Status | Done |
+| Executed by / date | Amir Husseini |
+| Defect raised | error not displayed and was able to submit |
+
+---
+
+### TC-003 — Invalid Email Address
+
+| Field | Value |
+| --- | --- |
+| Test case ID | TC-003 |
+| Traces to | REQ-03 |
+| Type | Validation |
+| Priority | High |
+| Preconditions | RSVP form is open |
+| Test data | Full Name: Amir Husseini, Email: not-an-email, Guests: 1 |
+
+**Given** the RSVP form is open
+
+**When** I enter "not-an-email" in the Email field and click Submit
+
+**Then** the form should not submit and an email validation error should be displayed
+
+| Field | Value |
+| --- | --- |
+| Actual result | Fail |
+| Status | Done |
+| Executed by / date | Amir Husseini |
+| Defect raised | It failed no error displayed and form was submitted |
+
 <!-- ==========================================================================
      Copy everything between these comment markers to add another test case.
      Renumber the ID, and remember to add it to the traceability matrix.
@@ -158,9 +234,9 @@ Every requirement you tested needs a test case, and every test case needs to poi
 
 | Requirement | Test case(s) | Status | Defect |
 | --- | --- | --- | --- |
-| REQ-01 | | | |
-| REQ-02 | | | |
-| REQ-03 | | | |
+| REQ-01 | TC-001 | Not run | None |
+| REQ-02 | TC-002 | Not run | None |
+| REQ-03 | TC-003 | Not run | None |
 | REQ-04 | | | |
 | REQ-05 | | | |
 | REQ-06 | | | |
