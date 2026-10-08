@@ -1,59 +1,76 @@
-# i.c.stars Assessment 2 — Carl Lewis
+# i.c.stars Assessment 2
 
-Milwaukee · Molson Cycle 21 · 2026-10-08
+Milwaukee · Molson Cycle 21
 
-Artifacts for the three Assessment 2 tasks. Each task folder contains the **setup** template it was worked from, the **artifact** itself, and a flat CSV for import into a tracker.
+This repo holds the Assessment 2 tasks. **`main` is blank on purpose** — it's the assessment, not an answer key. You fill it in on your own branch.
 
-| Task | Standards | Artifact |
-| --- | --- | --- |
-| [Task 1 — Agile Backlog Refinement](assessment-2/task-1) | AG.SK2, AG.SK3, AG.SK5 | [`refined-backlog.md`](assessment-2/task-1/refined-backlog.md) |
-| [Task 2 — SDLC Diagram](assessment-2/task-2) | SD.KU1, SD.SK1, SD.SK2 | [`sdlc-swimlane.md`](assessment-2/task-2/sdlc-swimlane.md) |
-| [Task 3 — Test Plan + Defect Log](assessment-2/task-3) | QA.SK1, QA.SK2 | [`test-plan.md`](assessment-2/task-3/test-plan.md) · [`defect-log.md`](assessment-2/task-3/defect-log.md) |
+## 👉 Start here: [SUBMITTING.md](SUBMITTING.md)
 
-> Open Task 2 in the GitHub web UI — the swimlane diagrams are Mermaid and render as actual diagrams there. Each one is mirrored as a plain-text table so it stays readable in an editor or a PDF export.
+Read that first. It walks through branching, committing, and opening your pull request. The short version:
 
-## The three tasks are one continuous thread
-
-They deliberately chain, because that is what a real sprint looks like:
-
-```
-Task 1                     Task 3                      Task 2
-rough stories      →       acceptance criteria   →     the whole loop,
-refined into               become executable           diagrammed and
-STORY-101 with             test cases; TC-002          compared against
-acceptance criteria        catches DEF-001             Waterfall
+```bash
+git clone https://github.com/icstars-milwaukee/icstars-assessment-2.git
+cd icstars-assessment-2
+git checkout -b assessment-2/your-name
 ```
 
-- `STORY-101` (customer login) is refined from a one-line scribble in **Task 1**.
-- Its acceptance criteria convert into test cases `TC-001`–`TC-005` in **Task 3**, where `TC-002` catches `DEF-001` — a Severity-1 authentication bypass that the happy-path test passes straight over.
-- **Task 2** maps that same sequence onto the SDLC and shows why catching `DEF-001` inside the sprint, rather than in a Waterfall testing phase months later, is the entire argument for working this way.
+Then do the three tasks, push your branch, and open a pull request against `main`.
 
-Start at [`assessment-2/README.md`](assessment-2/README.md) for the full standard-by-standard evidence map.
+---
+
+## The three tasks
+
+All three go on the same branch and into the same pull request. Budget about 45 minutes each.
+
+| Task | Standards | What you do | Files you edit |
+| --- | --- | --- | --- |
+| [**Task 1** — SQL JOIN Query](assessment-2/task-1) | DA.SK1–3 | Query the `northwindsupply` database for each user's order count | `query.sql`, `submission.md` |
+| [**Task 2** — SDLC Diagram](assessment-2/task-2) | SD.KU1, SD.SK1, SD.SK2 | Map the SDLC phases on a swimlane, show Agile vs. Waterfall | `submission.md` |
+| [**Task 3** — Test Plan + Defect Log](assessment-2/task-3) | QA.SK1, QA.SK2 | Write 3 Given/When/Then test cases and log a defect | `test-plan.md`, `defect-log.md` |
+
+Each task folder has its own README with the full assignment, the proficiency criteria, and the common errors that cost points. **Read the task README before you start that task** — it tells you exactly what the reviewer is looking for.
 
 ## Repo layout
 
 ```
+SUBMITTING.md              how to submit — read this first
 assessment-2/
-  task-1/   Agile backlog refinement  — rough stories in, sprint-ready backlog out
-  task-2/   SDLC diagram              — blank template + completed swimlanes
-  task-3/   Test plan + defect log    — blank templates + executed plan and log
+  task-1/                  SQL JOIN query
+    README.md                the assignment
+    query.sql                ← you write your query here
+    submission.md            ← you paste your output and explanation here
+    db/                      northwindsupply schema, seed data, setup scripts
+  task-2/                  SDLC diagram
+    README.md                the assignment
+    submission.md            ← blank swimlane template, you fill it in
+  task-3/                  test plan + defect log
+    README.md                the assignment
+    test-plan.md             ← blank, you fill it in
+    defect-log.md            ← blank, you fill it in
+    templates/               clean reference copies of both templates
 .github/
-  ISSUE_TEMPLATE/   story, task and defect templates
+  PULL_REQUEST_TEMPLATE.md   loads automatically when you open your PR
+  ISSUE_TEMPLATE/            defect template, if you file issues
 ```
 
-## The issue templates are part of the work
+## Setting up the database for Task 1
 
-[`.github/ISSUE_TEMPLATE/`](.github/ISSUE_TEMPLATE) holds templates for user stories, tasks, and defects. They exist because every "common error" the assessment warns about — vague stories, missing acceptance criteria, no estimates, defects missing critical fields — is preventable at the moment of filing rather than caught later in review. Filing an issue in this repo forces the fields.
-
-[`assessment-2/task-1/create-issues.sh`](assessment-2/task-1/create-issues.sh) loads the refined backlog into this repo as labeled GitHub issues. It is dry-run by default:
+Task 1 needs the `northwindsupply` database. One command builds it:
 
 ```bash
-bash assessment-2/task-1/create-issues.sh          # prints what it would do
-APPLY=1 bash assessment-2/task-1/create-issues.sh  # actually creates them
+cd assessment-2/task-1
+bash db/setup.sh          # Windows PowerShell: .\db\setup.ps1
 ```
 
-## Note on the content
+You should see `users = 8, orders = 19`. If you do, your database matches everyone else's. Details and PostgreSQL/MySQL instructions are in [`assessment-2/task-1/db/README.md`](assessment-2/task-1/db/README.md).
 
-The teammate names in the backlog and defect log (A. Rivera, J. Chen) are placeholder squad members — swap them for the real Cycle 21 team before using any of this as a live sprint plan. `DEF-001` is the simulated defect called for by the Task 3 script, written up as though genuinely found during the sprint.
+The generated `.db` file is gitignored — don't commit it. Everyone builds their own.
 
-The project-context section of Task 2 refers to the live [Molson Cycle 21 project repo](https://github.com/icstars-milwaukee/icstars-rfp-molson-cycle21-carl-), which is where the actual application code lives.
+## Ground rules
+
+- **Work on your own branch.** Never commit to `main`, never edit someone else's branch.
+- **Fill in the files that are already there.** Don't create new files or rename existing ones — the reviewer looks in specific places.
+- **Submit real work.** Paste the output your query actually returned. Cite the real commit, the real sprint. Approximated evidence loses the standard faster than an incomplete answer does.
+- **Flag what you couldn't finish.** Every submission file has a notes section. Naming a gap honestly is treated as a strength — on Task 2 it's explicitly part of the standard.
+
+Stuck on git rather than on the assessment? The [Common problems](SUBMITTING.md#common-problems) section covers committing to `main` by accident, rejected pushes, and branching off the wrong place.

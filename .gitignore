@@ -1,0 +1,11 @@
+# Built by assessment-2/task-1/db/setup.sh — everyone generates their own.
+*.db
+*.sqlite
+*.sqlite3
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*~

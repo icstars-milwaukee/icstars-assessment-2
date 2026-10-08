@@ -1,38 +1,41 @@
-# Assessment 2 — i.c.stars Milwaukee, Molson Cycle 21
+# Assessment 2 — the three tasks
 
-**Author:** Carl Lewis · **Date:** 2026-10-08
-**Repo:** [`icstars-milwaukee/icstars-assessment-2-carl`](https://github.com/icstars-milwaukee/icstars-assessment-2-carl)
-**Project referenced:** [`icstars-rfp-molson-cycle21-carl-`](https://github.com/icstars-milwaukee/icstars-rfp-molson-cycle21-carl-) — where the actual application code lives
+| Task | Standards | Artifact you produce |
+| --- | --- | --- |
+| [Task 1 — SQL JOIN Query](task-1) | DA.SK1, DA.SK2, DA.SK3 | SQL query + its real output + a note explaining the query's purpose |
+| [Task 2 — SDLC Diagram](task-2) | SD.KU1, SD.SK1, SD.SK2 | Completed swimlane diagram with annotated phases |
+| [Task 3 — Test Plan + Defect Log](task-3) | QA.SK1, QA.SK2 | Test plan with 3 test cases + a defect log |
 
-| Task | Standards | Artifact | Folder |
-| --- | --- | --- | --- |
-| **Task 1** — Agile Backlog Refinement | AG.SK2, AG.SK3, AG.SK5 | Refined backlog: 2 sprint-ready stories, 6 tasks, estimates, owners | [`task-1/`](task-1) |
-| **Task 2** — SDLC Diagram | SD.KU1, SD.SK1, SD.SK2 | Annotated swimlane diagrams: Waterfall vs. Agile, 6 phases, project connection | [`task-2/`](task-2) |
-| **Task 3** — Test Plan + Defect Log | QA.SK1, QA.SK2 | Test plan with 5 Given/When/Then cases + defect log with DEF-001 | [`task-3/`](task-3) |
+Open the task folder and read its README before you start. Submission instructions for all three are in [SUBMITTING.md](../SUBMITTING.md).
 
-## The three tasks are one continuous thread
+---
 
-They are deliberately not independent exercises — each one consumes the output of the last, which is what an actual sprint looks like:
+## What each task is assessing
 
-```
-Task 1                     Task 3                      Task 2
-rough stories      →       acceptance criteria   →     the whole loop,
-refined into               become executable           diagrammed and
-STORY-101 with             test cases; TC-002          compared against
-acceptance criteria        catches DEF-001             Waterfall
-```
+### Task 1 — SQL JOIN Query · DA.SK1–3
 
-- `STORY-101` is refined in **Task 1**.
-- Its acceptance criteria become `TC-001`–`TC-005` in **Task 3**, and `TC-002` catches `DEF-001`, a Severity-1 authentication bypass.
-- **Task 2** maps that same sequence onto the SDLC and shows why finding `DEF-001` inside the sprint — rather than in a Waterfall testing phase months later — is the point of working this way.
+**Standards:** write queries that combine data across tables; aggregate and group results; explain what a query is for.
 
-## Supporting GitHub scaffolding
+You get the `northwindsupply` database — two tables, `users` and `orders`, with 8 and 19 rows. You write one query showing each user's name and how many orders they've placed, grouped by user. Then you run it, paste the real output, and explain in writing what question it answers and who would ask it.
 
-| Path | Purpose |
-| --- | --- |
-| [`../.github/ISSUE_TEMPLATE/user-story.md`](../.github/ISSUE_TEMPLATE/user-story.md) | Enforces role/goal/reason, acceptance criteria, and the Definition of Ready on every new story |
-| [`../.github/ISSUE_TEMPLATE/task.md`](../.github/ISSUE_TEMPLATE/task.md) | Enforces one owner and an hour estimate on every task |
-| [`../.github/ISSUE_TEMPLATE/bug_report.md`](../.github/ISSUE_TEMPLATE/bug_report.md) | Enforces the defect-log fields so no defect is filed missing severity, steps, or expected vs. actual |
-| [`task-1/create-issues.sh`](task-1/create-issues.sh) | Loads the refined backlog into GitHub as labeled issues (dry-run by default) |
+The explanation is a graded part of the task, not a formality. A query nobody can explain is a query nobody should run.
 
-The templates exist because the assessment's listed common errors — vague stories, missing acceptance criteria, no estimates, defects missing critical fields — are all preventable at the point of filing rather than caught in review.
+### Task 2 — SDLC Diagram · SD.KU1, SD.SK1, SD.SK2
+
+**Standards:** identify and explain the SDLC phases; compare Waterfall and Agile.
+
+You get a blank swimlane template. You work out the phases, put them in order, say what happens in each, then show the same phases arranged the Waterfall way and the Agile way — the difference should be visible in the shape of the diagram, not only in your notes. Finally you connect it to your team's real project with specifics a reviewer can go look up.
+
+### Task 3 — Test Plan + Defect Log · QA.SK1, QA.SK2
+
+**Standards:** translate requirements into test cases; log and track defects systematically.
+
+You get one requirement — *a user can log in with email + password and see the dashboard* — and one simulated error: *login accepts wrong password*. You write three Given/When/Then test cases traced to the acceptance criteria, then log the defect with every field a developer would need to reproduce and fix it.
+
+---
+
+## The tasks are related
+
+Task 3 gives you a requirement and asks you to test it. Task 2 asks you to diagram the lifecycle that requirement travels through. Task 1 asks you to query the data a working version of it would produce.
+
+You don't need to connect them to score well — each is graded on its own. But if you notice while doing Task 2 that the defect you logged in Task 3 is exactly the kind of thing Waterfall catches late and Agile catches early, that's worth writing down in your project note. Reviewers notice when an apprentice sees across the three.

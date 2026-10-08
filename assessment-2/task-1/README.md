@@ -1,50 +1,133 @@
-# Assessment 2 — Task 1: Agile Backlog Refinement
+# Task 1 — SQL JOIN Query
 
-**Standards covered:** AG.SK2, AG.SK3, AG.SK5
-**Author:** Carl Lewis · i.c.stars Milwaukee · Molson Cycle 21
-**Date:** 2026-10-08
+**Standards:** DA.SK1, DA.SK2, DA.SK3
+**Database:** `northwindsupply`
+**Time guide:** 45 minutes
 
-## Standard → evidence map
+---
 
-| Standard | What it asks for | Where it lives |
-| --- | --- | --- |
-| AG.SK2 | Break down user stories into tasks | [`refined-backlog.md`](refined-backlog.md) — Tasks tables under each story |
-| AG.SK3 | Add estimates to tasks | [`refined-backlog.md`](refined-backlog.md) — Points + Hours columns, sprint capacity check |
-| AG.SK5 | Refine backlog into sprint-ready items | [`refined-backlog.md`](refined-backlog.md) — Definition of Ready gate, acceptance criteria, owners |
+## Your assignment
 
-## Files in this folder
+Write a query against the `northwindsupply` database that shows **each user's name and the number of orders they have placed.** Group the results by user.
 
-| File | Purpose |
+Then run it, capture the output, and explain in writing what the query is for.
+
+## What you submit
+
+Three things, all on your own branch (see [Submitting](#submitting) below):
+
+| File | What goes in it |
 | --- | --- |
-| `rough-user-stories.md` | The **input** — the unrefined stories handed to the team |
-| `refined-backlog.md` | The **artifact** — 2 stories rewritten in role/goal/reason format, with acceptance criteria, 6 tasks, estimates, and owners |
-| `sprint-1-backlog.csv` | Same backlog in flat form for import into GitHub Projects / Jira / Sheets |
-| `create-issues.sh` | Optional: creates the stories and tasks as real GitHub issues via `gh` CLI |
+| `query.sql` | Your SQL query |
+| `submission.md` → **Output** section | The exact output your query produced, pasted in |
+| `submission.md` → **Purpose** section | A short written explanation of what the query does and why someone would run it |
 
-## Refinement workflow used
+Both files already exist in this folder with the sections marked. Fill them in — don't create new files.
 
-1. **Pull** the two highest-value rough stories from the raw list.
-2. **Rewrite** each as `As a [role], I want [goal], so that [reason]` — the *reason* clause is what makes the story testable for value, not just function.
-3. **Add acceptance criteria** in Given / When / Then so QA can write tests before code exists.
-4. **Decompose** into tasks that are each ≤ 1 day of work and independently verifiable.
-5. **Estimate** in story points at the story level, hours at the task level.
-6. **Assign an owner** per task — one name, not a team, so there is a single person accountable.
-7. **Gate** against the Definition of Ready before the story enters the sprint.
+---
 
-## Running the GitHub side
+## The database
 
+Two tables. Build them yourself with the setup script below — the data is already written for you, you do not need to create or change it.
+
+### `users` — one row per person with an account
+
+| Column | Type | Notes |
+| --- | --- | --- |
+| `id` | INTEGER | Primary key |
+| `name` | VARCHAR(100) | |
+| `email` | VARCHAR(255) | Unique |
+| `city` | VARCHAR(100) | |
+| `state` | VARCHAR(2) | |
+| `signup_date` | DATE | |
+
+### `orders` — one row per order placed
+
+| Column | Type | Notes |
+| --- | --- | --- |
+| `id` | INTEGER | Primary key |
+| `user_id` | INTEGER | Foreign key → `users.id` — tells you who placed the order |
+| `order_date` | DATE | |
+| `status` | VARCHAR(20) | `shipped`, `pending`, or `cancelled` |
+| `total_amount` | DECIMAL(10,2) | |
+
+**8 users, 19 orders.** The data is deliberately uneven — look at it before you write anything. Run `SELECT * FROM users;` and `SELECT * FROM orders;` first. What you notice there should inform the query you write.
+
+---
+
+## Building the database
+
+The fastest path is SQLite — no server to install, and it ships with most systems.
+
+**Mac / Linux / Git Bash:**
 ```bash
-# from the repo root, with the gh CLI authenticated
-gh auth status
-bash assessment-2/task-1/create-issues.sh
+cd assessment-2/task-1
+bash db/setup.sh
 ```
 
-The script is dry-run by default — it prints the `gh issue create` commands without executing them. Set `APPLY=1` to actually create the issues:
-
-```bash
-APPLY=1 bash assessment-2/task-1/create-issues.sh
+**Windows PowerShell:**
+```powershell
+cd assessment-2\task-1
+.\db\setup.ps1
 ```
 
-Issue templates for future stories and tasks live in [`.github/ISSUE_TEMPLATE/`](../../.github/ISSUE_TEMPLATE) at the repo root.
+Either one creates `northwindsupply.db` in this folder and prints the row counts so you know it worked. Then open it:
 
-> **Note on owner names:** the owners in this backlog are placeholder squad members. Swap them for the real Cycle 21 team before using this as a live sprint plan.
+```bash
+sqlite3 northwindsupply.db
+```
+
+Useful once you're in the SQLite prompt:
+
+| Command | Does |
+| --- | --- |
+| `.tables` | List the tables |
+| `.schema users` | Show a table's columns |
+| `.headers on` | Show column names in output — **turn this on before capturing output** |
+| `.mode column` | Line the output up in columns |
+| `.read query.sql` | Run the query you saved in `query.sql` |
+| `.quit` | Exit |
+
+Running PostgreSQL or MySQL instead? See [`db/README.md`](db/README.md) — the schema is portable, with the two small differences noted.
+
+## Capturing your output
+
+Run your query with headers on, then copy the result — column headers and all — into the **Output** section of `submission.md`. One command that does it in one step:
+
+```bash
+sqlite3 -header -column northwindsupply.db < query.sql
+```
+
+Paste the real output. Do not retype it from memory or hand-write what you expect it to be — the output has to match what the query actually returns.
+
+---
+
+## How this is graded
+
+**Proficient:**
+- The query joins `users` and `orders` rather than querying one table
+- Results are grouped by user, with a count of orders per user
+- The count column is given a readable alias
+- The output in `submission.md` matches what the query actually returns
+- The purpose note explains what the query answers and who would want to know
+
+**Common errors that cost points:**
+- `SELECT` without a `JOIN` — pulling from one table only, or listing both tables with no join condition
+- Missing `GROUP BY`, so the count collapses to a single row for the whole table
+- No explanation of the query's purpose
+
+---
+
+## Submitting
+
+Work on your own branch and open a pull request. Do not commit to `main`.
+
+```bash
+git checkout -b assessment-2/<your-name>
+# fill in query.sql and submission.md
+git add .
+git commit -m "Task 1: SQL JOIN query — <your name>"
+git push -u origin assessment-2/<your-name>
+```
+
+Then open a pull request against `main` on GitHub. Full instructions, including how to submit all three tasks on one branch, are in [SUBMITTING.md](../../SUBMITTING.md) at the repo root.
