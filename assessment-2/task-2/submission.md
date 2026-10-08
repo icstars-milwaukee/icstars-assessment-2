@@ -84,7 +84,7 @@ flowchart LR
 
 **Where does work have to stop and wait for approval before it can continue? Mark those points on your diagram and list them here.**
 
-> In waterfall, waiting is part of the game. In waterfall, months or even years can pass before code is written. In theory, you should never move on to a phase or move backward in waterfall.
+> In waterfall, waiting is part of the game. In waterfall, months or even years can pass before code is written. In theory, you should never move on to a phase or move backward in waterfall. Approvals to move forward are likely needed after every phase.
 
 **Does work ever travel backwards in this model? When, and what does that cost?**
 
