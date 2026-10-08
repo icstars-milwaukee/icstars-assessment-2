@@ -1,8 +1,8 @@
 # Task 2 Submission — SDLC Swimlane Diagram
 
-**Apprentice name:**
-**Date:**
-**Project:**
+**Apprentice name:** Jose Romero
+**Date:** 10/8/2026
+**Project:** Task 2
 
 ---
 
@@ -12,16 +12,16 @@ List the phases in the order they happen. **Add or remove rows as you need** —
 
 | # | Phase name | What happens in it | What comes out of it |
 | --- | --- | --- | --- |
-| 1 | | | |
-| 2 | | | |
-| 3 | | | |
-| 4 | | | |
-| 5 | | | |
-| 6 | | | |
+| 1 |Requirements |Typically, this begins with a kick-off call with a customer or client. Conversations are had to determine what requirements are needed in the final product. Whether or not this phase is revisited and how it is revisited is dependent on the chosen methodology. |Often times a contract is the result of this. A written document that details the terms of the agreement and what the client's expectations are for a final product. |
+| 2 |Design |UX, UI, and system design architects tend to operate here. This is where the requirements are used to more or less determine what the design will be. How the product will work, what it will look like, how it will meet the requirements, etc. |Typically things like a wireframe, database design, or diagrams showing how data flows through a program is the result of the design phase. |
+| 3 |Development |In software development, this is where coding happens. Some people might write tests BEFORE doing any actual coding, but traditionally, this is where things start getting built that align with the requirements and design. Changes may get made, but again, this depends on the methodology chosen. |The outcome is often something like an MVP that can be used. If using waterfall, usually the result is a fully build system. Otherwise, it could just be a single component or two of a full system. |
+| 4 |Testing |This is where unit tests, integration tests, acceptance tests, etc. are held to make sure that the products works as intended. |Often, failed or accepted tests is the outcome. Some documentation might be made too if you are using waterfall. |
+| 5 |Deploy |This is where the product is put out in a production environment. Users are now able to use the product and potentially provide feedback. |Often times, the outcome is feedback from a client. It could also be bugs that were not caught in the testing phase. |
+| 6 |Review |This is where users use the product and start sending the feedback to developers. This is also where things like routine maintenance of a system could occur. |The result is often times new tasks to work on and restart the cycle with. The requirements phase would start up again, this time using the feedback from the review phase. |
 
 **Does anything happen after the last phase? Say what, and where it goes.**
 
->
+> Usually maintenance (like the maintenance updates one may get for an app or something). Security updates should happen regularly, and if a client is not doing that themselves, then developers may provide that, but it depends on what sort of agreement was made.
 
 ---
 
