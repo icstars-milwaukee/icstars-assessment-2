@@ -9,6 +9,7 @@
 ## Output
 
 Paste the exact output of your query here, **column headers included.**
+<img width="1396" height="735" alt="image" src="https://github.com/user-attachments/assets/c3039544-adda-4083-88ec-016766a4109a" />
 
 In SSMS: press **Ctrl+T** (Results to Text), then **F5** to run, then copy the Results pane. If you'd rather stay in the grid, select your rows and press **Ctrl+Shift+C** (Copy with Headers) — plain Ctrl+C drops the column names, which is the usual reason a paste comes out nameless.
 
