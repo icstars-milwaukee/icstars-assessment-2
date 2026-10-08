@@ -12,11 +12,11 @@ List the phases in the order they happen. **Add or remove rows as you need** —
 
 | # | Phase name | What happens in it | What comes out of it |
 | --- | --- | --- | --- |
-| 1 | | | |
-| 2 | | | |
-| 3 | | | |
-| 4 | | | |
-| 5 | | | |
+| 1 | Requirements| Review and look over criteria, vision, and needs.| An idea of what the stakeholders want and what to work on. |
+| 2 | Design| Creation of plans, rough drafts, lofi wireframes.| Scope of what the product should look like.|
+| 3 | Build| Writing code in branches, carifying practices, preparing test environments.| The product in creation for the stakeholder.|
+| 4 | Test| Find bugs, test codes, and adress issues within product.| To work out the kinks and find the issues within the product/code.|
+| 5 | Demo & Release|Merge to the main branch, finalizing bug fixes, and walkthrough the features. | The finished product and finalization on checks.|
 | 6 | | | |
 
 **Does anything happen after the last phase? Say what, and where it goes.**
@@ -33,12 +33,12 @@ Fill in **either** the table or the Mermaid diagram. Put your own phase names in
 
 Replace the blank column headers with your phases. The lanes down the left are a starting suggestion — change them if your project's roles are different.
 
-| Lane (role) | | | | | | |
+| Lane (role) |Requirements|Design |Build |Test |Demo/Release | |
 | --- | --- | --- | --- | --- | --- | --- |
-| Product / BA | | | | | | |
-| Design | | | | | | |
-| Development | | | | | | |
-| QA | | | | | | |
+| Product / BA | Ensuring requirements set from stakeholders and delagating work.| Building the relationship with mentors/stakeholders and continuing to delegate work| Watching over the building and making sure that it meets the expectation of stakeholders needs|Noticing the issues within the work and creating plans to fix/debug | In contact with stakeholders about the progress and finzlization of product| |
+| Design | Understand user and stakeholder needs.| Create wireframes, mockups, and prototypes | Support the developers in specific design applications| Make sure that the UI/UX works as intened|Approve the final visual of design before the release of product. | |
+| Development |Review requirements and identify technical needs. | Plan the techstack of the product| Write the code and implement features| Fix the bugs and adress the issues found while testing| Merge/deploy code that supports the release| |
+| QA |Review requirements for testability and acceptance criteria. |Create test plans and test cases. |Prep the testing environments |Test the product in environments created |Final corrections |Verify the bugs are fixed and product/code is working as planned |
 | Ops / Release | | | | | | |
 
 Leave a cell blank if that role is genuinely idle at that point. Idle cells are information, not gaps.
@@ -88,7 +88,7 @@ flowchart LR
 
 **Does work ever travel backwards in this model? When, and what does that cost?**
 
->
+>Work does not move backwards within this model and this costs the feedback area of the work that is being done. So, once something is finished it is finished.
 
 ---
 
@@ -100,7 +100,7 @@ The same phases from Part 1. Work out for yourself how the arrangement changes �
 
 Build the grid yourself. Use whatever columns make the Agile arrangement clear; they do not have to be the same columns you used in Part 2.
 
-| Lane (role) | | | |
+| Lane (role) |Requirements |Design | Build|
 | --- | --- | --- | --- |
 | Product / BA | | | |
 | Design | | | |
@@ -116,22 +116,22 @@ Same skeleton as Part 2, deliberately. If your Agile diagram ends up looking str
 flowchart LR
   subgraph PROD["Product / BA"]
     direction TB
-    P1[" "]
+    P1["Requirements "]
   end
 
   subgraph DES["Design"]
     direction TB
-    D1[" "]
+    D1[" Design"]
   end
 
   subgraph DEV["Development"]
     direction TB
-    V1[" "]
+    V1["Test/Build "]
   end
 
   subgraph QAL["QA"]
     direction TB
-    Q1[" "]
+    Q1["Test/Release&Demo "]
   end
 
   subgraph OPS["Ops / Release"]

@@ -15,9 +15,9 @@ One row per defect. Add rows as you need them.
 
 | ID | Title | Severity | Priority | Status | Found in | Reported by | Owner | Date found | Linked test case |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| | | | | | | | | | |
-| | | | | | | | | | |
-| | | | | | | | | | |
+| DEF-001 |Can submit without using an actual email. |2 Major |P2 | New|Riverside RSVP | Luke Vang|Luke Vang | 10/8/26| file:///c%3A/Users/LukeVang/Assessment-2/icstars-assessment-2/scenario/rsvp-portal/index.html|
+| DEF-002| Can submit without filling out any details|1 Critical | P1| New| Riverside RSVP| Luke Vang| Luke Vang| 10/8/26| file:///c%3A/Users/LukeVang/Assessment-2/icstars-assessment-2/scenario/rsvp-portal/index.html|
+|DEF-003 |Can submit with negative numbers in guests |3 Minor | P3| New| Riverside RSVP| Luke Vang| Luke Vang| file:///c%3A/Users/LukeVang/Assessment-2/icstars-assessment-2/scenario/rsvp-portal/index.html| |
 
 ---
 
@@ -49,28 +49,35 @@ One row per defect. Add rows as you need them.
 
 Numbered, with the literal values you typed. Someone who has never seen this defect must be able to follow these and hit it.
 
-1.
-2.
-3.
-4.
+DEF-001
+1. Fill information while writing jibbereish into email address
+2. Click the green submit button
+
+DEF-002
+1. Click the green submit button without entering any information
+
+DEF-003
+1.Fill information
+2. Write a negative number in "number of guests" category
+3. Click the green submit button
 
 #### Expected result
 
 *What should have happened. Quote the requirement it violates.*
 
->
+>Bring you back into the RSVP screen and state an error stating that you need a valid email address.
 
 #### Actual result
 
 *What actually happened. Be specific — exact on-screen text, not "it didn't work."*
 
->
+>You're able to get through, and it confirms your RSVP.
 
 #### Evidence
 
 *A screenshot, the exact text you saw, or anything the browser Console showed. Describe what you'd attach.*
 
->
+>![alt text](image.png)
 
 #### Root cause
 
