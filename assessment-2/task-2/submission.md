@@ -33,13 +33,13 @@ Fill in **either** the table or the Mermaid diagram. Put your own phase names in
 
 Replace the blank column headers with your phases. The lanes down the left are a starting suggestion â€” change them if your project's roles are different.
 
-| Lane (role) | | | | | | |
+| Lane (role) |Requirements Gathered |Architecture Approved |Code Developed |Testing Passed |Future Deployment |
 | --- | --- | --- | --- | --- | --- | --- |
-| Product / BA | | | | | | |
-| Design | | | | | | |
-| Development | | | | | | |
-| QA | | | | | | |
-| Ops / Release | | | | | | |
+| Product / BA |x | | | | | |
+| Design | |x | | | | |
+| Development | | |x | | | |
+| QA | | | |x | | |
+| Ops / Release | | | | | |x |
 
 Leave a cell blank if that role is genuinely idle at that point. Idle cells are information, not gaps.
 
@@ -100,13 +100,13 @@ The same phases from Part 1. Work out for yourself how the arrangement changes â
 
 Build the grid yourself. Use whatever columns make the Agile arrangement clear; they do not have to be the same columns you used in Part 2.
 
-| Lane (role) | | | |
+| Lane (role) |Concept |Inception |Iteration |Release |Maintenance | Retirement
 | --- | --- | --- | --- |
-| Product / BA | | | |
-| Design | | | |
-| Development | | | |
-| QA | | | |
-| Ops / Release | | | |
+| Product / BA |x |x | |
+| Design | |x | |
+| Development | | |x |
+| QA | | |x |
+| Ops / Release | | | |x |
 
 ### Mermaid version
 
