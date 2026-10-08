@@ -36,10 +36,11 @@ Each task folder has its own README with the full assignment, the proficiency cr
 SUBMITTING.md              how to submit — read this first
 assessment-2/
   task-1/                  SQL JOIN query
-    README.md                the assignment
+    README.md                the assignment, plus the schema and all the data
+    setup.sql                builds the northwindsupply database — read this first
+    setup.sh / setup.ps1     runs setup.sql for you
     query.sql                ← you write your query here
     submission.md            ← you paste your output and explanation here
-    db/                      northwindsupply schema, seed data, setup scripts
   task-2/                  SDLC diagram
     README.md                the assignment
     submission.md            ← blank swimlane template, you fill it in
@@ -59,10 +60,12 @@ Task 1 needs the `northwindsupply` database. One command builds it:
 
 ```bash
 cd assessment-2/task-1
-bash db/setup.sh          # Windows PowerShell: .\db\setup.ps1
+bash setup.sh             # Windows PowerShell: .\setup.ps1
 ```
 
-You should see `users = 8, orders = 19`. If you do, your database matches everyone else's. Details and PostgreSQL/MySQL instructions are in [`assessment-2/task-1/db/README.md`](assessment-2/task-1/db/README.md).
+You should see `users = 8, orders = 19`. If you do, your database matches everyone else's.
+
+The whole database is one file — [`assessment-2/task-1/setup.sql`](assessment-2/task-1/setup.sql) — and the script does nothing except feed it to sqlite3. The schema and all the data are also printed in the [Task 1 README](assessment-2/task-1/README.md#the-database), so you can read the tables and design your query before you run anything. PostgreSQL, MySQL and no-install-at-all instructions are at the bottom of that README.
 
 The generated `.db` file is gitignored — don't commit it. Everyone builds their own.
 
