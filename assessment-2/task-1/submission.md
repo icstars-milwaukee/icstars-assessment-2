@@ -12,7 +12,7 @@ Paste the exact output of your query here, **column headers included.**
 
 The query I used is below:
 ```SQL
-SELECT users.name, COUNT(orders.id)
+SELECT users.name, COUNT(orders.id) total_orders
 FROM users
 JOIN orders on orders.user_id = users.id
 GROUP BY users.id, users.name;
@@ -24,7 +24,13 @@ The output looks like this:
 In SSMS: press **Ctrl+T** (Results to Text), then **F5** to run, then copy the Results pane. If you'd rather stay in the grid, select your rows and press **Ctrl+Shift+C** (Copy with Headers) — plain Ctrl+C drops the column names, which is the usual reason a paste comes out nameless.
 
 ```
-
+name	(No column name)
+Maria Alvarez	5
+Darnell Brooks	4
+Priya Raman	3
+Tomas Nowak	2
+Grace Okonkwo	1
+Hector Reyes	4
 
 
 
