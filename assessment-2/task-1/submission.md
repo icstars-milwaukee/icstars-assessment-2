@@ -9,7 +9,14 @@
 ## Output
 
 Paste the exact output of your query here, **column headers included.**
-
+SELECT
+    u.name AS [User Name],
+    COUNT(o.id) AS [Order Count]
+FROM users u
+JOIN orders o
+    ON u.id = o.user_id
+    Group by u.name
+ORDER BY u.name;
 In SSMS: press **Ctrl+T** (Results to Text), then **F5** to run, then copy the Results pane. If you'd rather stay in the grid, select your rows and press **Ctrl+Shift+C** (Copy with Headers) — plain Ctrl+C drops the column names, which is the usual reason a paste comes out nameless.
 
 ```
