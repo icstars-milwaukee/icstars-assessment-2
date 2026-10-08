@@ -12,7 +12,7 @@ Copy one block per test case. A case is not finished until every field is filled
 | Traces to | REQ-00 / AC <n> |
 | Type | Positive / Negative / Boundary / Security / Accessibility |
 | Priority | High / Medium / Low |
-| Author | <name> |
+| Author | Cortez |
 | Preconditions | <state the system must be in before the test starts> |
 | Test data | <exact values used — not "a valid user"> |
 
@@ -22,8 +22,8 @@ Copy one block per test case. A case is not finished until every field is filled
 
 | Step | Action | Expected result |
 | --- | --- | --- |
-| 1 | | |
-| 2 | | |
+| 1 | i put my email and name credentials into the system|  login is successful and i move on to the the next page |
+| 2 | im shown a confimation of what i put in the previous page   | | 
 | 3 | | |
 
 | Field | Value |

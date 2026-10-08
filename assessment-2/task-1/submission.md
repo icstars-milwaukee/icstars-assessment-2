@@ -1,7 +1,7 @@
 # Task 1 Submission — SQL JOIN Query
 
-**Apprentice name:**
-**Date:**
+**cortez:**
+**10/08/26:**
 **Database:** `northwindsupply`
 
 ---
@@ -13,7 +13,13 @@ Paste the exact output of your query here, **column headers included.**
 In SSMS: press **Ctrl+T** (Results to Text), then **F5** to run, then copy the Results pane. If you'd rather stay in the grid, select your rows and press **Ctrl+Shift+C** (Copy with Headers) — plain Ctrl+C drops the column names, which is the usual reason a paste comes out nameless.
 
 ```
-
+ SELECT
+    users.name,
+    COUNT(orders.id) AS OrderCount
+FROM users
+JOIN orders
+    ON users.id = orders.user_id
+GROUP BY users.name;
 
 
 
@@ -30,6 +36,7 @@ Explain what this query is for, in your own words. A few sentences is enough. Co
 - **How does it work?** Walk through what the join does and what the grouping does.
 
 Write your explanation below:
+this query is to see the names of users and   their orders, connect them using the user's ID, count the orders belonging to each user, and show the result grouped by the user's name."
 
 >
 >

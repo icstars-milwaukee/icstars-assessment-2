@@ -15,7 +15,7 @@ One row per defect. Add rows as you need them.
 
 | ID | Title | Severity | Priority | Status | Found in | Reported by | Owner | Date found | Linked test case |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| | | | | | | | | | |
+| req 1| | | | | | | | | |
 | | | | | | | | | | |
 | | | | | | | | | | |
 

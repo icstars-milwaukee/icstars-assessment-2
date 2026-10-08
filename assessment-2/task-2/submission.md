@@ -12,12 +12,12 @@ List the phases in the order they happen. **Add or remove rows as you need** —
 
 | # | Phase name | What happens in it | What comes out of it |
 | --- | --- | --- | --- |
-| 1 | | | |
-| 2 | | | |
-| 3 | | | |
-| 4 | | | |
-| 5 | | | |
-| 6 | | | |
+| 1 |planning  | define the goals, scope, and overall strategy| clear direction on how the project should be progressing  |
+| 2 | design|  documented requirements and business concepts are turned into a actionable blueprint before any code is written|  a rough draft or blue lofi of what the final product should be |
+| 3 |development | design blueprints and architecture documents are turned into actual, working source code | a working prototype of the product and every thing that went into the previous sdlc lif cycle before development  |
+| 4 | testing| checking software to find bugs, verify functionality against requirements, and ensure reliability before release | making sure the product is something that could be given to a client or needs more work |
+| 5 | deployment| the product goes from a private environment into a more public one  to see how it installs, configures, and behaves before real customers use it| Feedback and more UI testing as well as working out any of the last kinks that may arise  |
+| 6 | maintiance|updating, fixing, and improving software after it has already been launched and handed over to users |the final product of the cycle which can be given to the client and just needs minor things that dont impded the flow of the app |
 
 **Does anything happen after the last phase? Say what, and where it goes.**
 
