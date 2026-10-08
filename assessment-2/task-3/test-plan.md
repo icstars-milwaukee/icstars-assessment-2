@@ -1,7 +1,7 @@
 # Task 3 Submission — Test Plan
 
-**Apprentice name:**
-**Date:**
+**Apprentice name:** Ventura Perez Del Castillo
+**Date:** 10/08/2026
 **System under test:** Riverside Community Association RSVP Portal — `scenario/rsvp-portal/index.html`
 **Release context:** v1 in staging, meetup is Saturday October 11, not yet public
 
@@ -22,11 +22,11 @@
 
 **In scope** — what your testing covers:
 
->
+>The user side of it, how the users perceive the product.
 
 **Out of scope** — what it deliberately does not cover, and why:
 
->
+>The backend/server side of it. This is because this QA testing will only cover front end on purpose to better isolate issues.
 
 *(The absence of a backend is a known v1 limitation. If you're putting it out of scope, say so here rather than logging it as a defect.)*
 
@@ -34,11 +34,11 @@
 
 | Item | Value |
 | --- | --- |
-| File / URL under test | |
-| Browser + version | |
-| Operating system | |
-| Device / screen size | |
-| Developer tools used | *e.g. Console, Elements — and did the Console show anything?* |
+| File / URL under test |file:///c%3A/Users/VenturaPerez/assessment-2/icstars-assessment-2/scenario/rsvp-portal/index.html |
+| Browser + version | VSCode built in browser|
+| Operating system | WIN 11|
+| Device / screen size |Dell Latitude 5420 |
+| Developer tools used | Inspect, console |
 
 ## 3. Test data
 
@@ -46,21 +46,21 @@ Literal values, not descriptions. These are the values your reviewer will type i
 
 | Field | Value you used |
 | --- | --- |
-| | |
-| | |
-| | |
-| | |
-| | |
+|Keyboard |Built in Dell Latitude 5420 |
+|Mouse/Trackpad |Logitech M100 |
+|Internet Connections |Built in Dell Latitude 5420 wifi adapter |
+|Audio |Built in Dell Latitude 5420 speakers |
+|Visual |Built in Dell Latitude 5420 screen |
 
 ## 4. Entry / exit criteria
 
 **Entry** — what has to be true before testing can start:
 
->
+>The page is loaded on your browser with internet connection
 
 **Exit** — what has to be true before you'd sign this off for Saturday:
 
->
+>The page works as intended without holes.
 
 ---
 
