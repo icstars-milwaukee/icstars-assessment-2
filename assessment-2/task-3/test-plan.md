@@ -234,9 +234,9 @@ Every requirement you tested needs a test case, and every test case needs to poi
 
 | Requirement | Test case(s) | Status | Defect |
 | --- | --- | --- | --- |
-| REQ-01 | TC-001 | Not run | None |
-| REQ-02 | TC-002 | Not run | None |
-| REQ-03 | TC-003 | Not run | None |
+| REQ-01 | TC-001 | run | None |
+| REQ-02 | TC-002 | run | Yes |
+| REQ-03 | TC-003 | run | Yes |
 | REQ-04 | | | |
 | REQ-05 | | | |
 | REQ-06 | | | |
