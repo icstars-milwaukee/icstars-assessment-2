@@ -26,7 +26,7 @@ All three go on the same branch and into the same pull request. Budget about 45 
 | --- | --- | --- | --- |
 | [**Task 1** — SQL JOIN Query](assessment-2/task-1) | DA.SK1–3 | Query the `northwindsupply` database for each user's order count | `query.sql`, `submission.md` |
 | [**Task 2** — SDLC Diagram](assessment-2/task-2) | SD.KU1, SD.SK1, SD.SK2 | Map the SDLC phases on a swimlane, show Agile vs. Waterfall | `submission.md` |
-| [**Task 3** — Test Plan + Defect Log](assessment-2/task-3) | QA.SK1, QA.SK2 | Test a real RSVP web app, write 3 Given/When/Then test cases, log the defects you find | `test-plan.md`, `defect-log.md` |
+| [**Task 3** — Test Plan + Defect Log](assessment-2/task-3) | QA.SK1, QA.SK2 | Test a real RSVP web app against its requirements, then log what you find | `test-plan.md`, `defect-log.md` |
 
 Each task folder has its own README with the full assignment, the proficiency criteria, and the common errors that cost points. **Read the task README before you start that task** — it tells you exactly what the reviewer is looking for.
 
@@ -37,10 +37,11 @@ SUBMITTING.md              how to submit — read this first
 assessment-2/
   task-1/                  SQL JOIN query
     README.md                the assignment, plus the schema and all the data
-    setup.sql                builds the northwindsupply database — read this first
-    setup.sh / setup.ps1     runs setup.sql for you
+    setup.sql                builds northwindsupply in SSMS — read this first
     query.sql                ← you write your query here
     submission.md            ← you paste your output and explanation here
+    setup-sqlite.sql         fallback, only if you have no SSMS
+    setup.sh / setup.ps1     fallback helpers for the SQLite route
   task-2/                  SDLC diagram
     README.md                the assignment
     submission.md            ← blank swimlane template, you fill it in
@@ -59,14 +60,16 @@ scenario/                  the app you test in Task 3 — don't edit it
 
 ## Setting up the database for Task 1
 
-Task 1 needs the `northwindsupply` database. One command builds it:
+Task 1 uses **SQL Server Management Studio** and the `northwindsupply` database.
 
-```bash
-cd assessment-2/task-1
-bash setup.sh             # Windows PowerShell: .\setup.ps1
-```
+1. Open SSMS and connect to your server.
+2. **File → Open → File…** and pick [`assessment-2/task-1/setup.sql`](assessment-2/task-1/setup.sql).
+3. Press **F5** to execute.
+4. Check the **Messages** tab for `users rows (expect 8): 8` and `orders rows (expect 19): 19`.
 
-You should see `users = 8, orders = 19`. If you do, your database matches everyone else's.
+If you see those two numbers, your database matches everyone else's.
+
+**One thing that catches everybody:** a new query window in SSMS points at `master`, not at your database, so a query will fail with `Invalid object name 'users'` until you run `USE northwindsupply;`. That line is already at the top of `query.sql` — leave it there.
 
 The whole database is one file — [`assessment-2/task-1/setup.sql`](assessment-2/task-1/setup.sql) — and the script does nothing except feed it to sqlite3. The schema and all the data are also printed in the [Task 1 README](assessment-2/task-1/README.md#the-database), so you can read the tables and design your query before you run anything. PostgreSQL, MySQL and no-install-at-all instructions are at the bottom of that README.
 

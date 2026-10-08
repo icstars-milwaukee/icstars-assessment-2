@@ -2,6 +2,7 @@
 
 **Standards:** DA.SK1, DA.SK2, DA.SK3
 **Database:** `northwindsupply`
+**Tool:** SQL Server Management Studio (SSMS)
 **Time guide:** 45 minutes
 
 ---
@@ -26,24 +27,40 @@ Both files are already in this folder with the sections marked. Fill them in —
 
 # The database
 
-Everything you need to design your query is below. **[`setup.sql`](setup.sql) is the complete build script** — it creates both tables and inserts all the data. Read it, then run it.
+Everything you need to design your query is below. **[`setup.sql`](setup.sql) is the complete build script** — it creates the database, creates both tables, and inserts all the data. Read it, then run it.
 
-## Building it
+## Building it in SSMS
 
-```bash
-cd assessment-2/task-1
-bash setup.sh
+1. Open **SQL Server Management Studio** and connect to your server.
+2. **File → Open → File…** and pick [`setup.sql`](setup.sql). (Or open a New Query window and paste the whole file in.)
+3. Click **Execute**, or press **F5**.
+4. Click the **Messages** tab. You should see:
+
+   ```
+   users rows (expect 8):    8
+   orders rows (expect 19):  19
+   ```
+
+If you see those two numbers, your database is built and identical to everyone else's.
+
+## ⚠️ `USE northwindsupply;` — the one that catches everybody
+
+A new query window in SSMS starts out pointed at **`master`**, not at your database. `master` has no `users` table, so your query fails with:
+
+```
+Invalid object name 'users'.
 ```
 
-Windows PowerShell: `.\setup.ps1`
+That error almost always means you're in the wrong database, not that your SQL is wrong. Two ways to fix it:
 
-Either one creates `northwindsupply.db` in this folder and prints the row counts so you know it worked — you should see `users = 8, orders = 19`. If you'd rather skip the script, it does nothing but this:
-
-```bash
-sqlite3 northwindsupply.db < setup.sql
+```sql
+USE northwindsupply;
+GO
 ```
 
-No `sqlite3` on your machine? `brew install sqlite3` on Mac, `sudo apt install sqlite3` on Ubuntu, `winget install SQLite.SQLite` on Windows. Running PostgreSQL or MySQL instead? See [Using a different database engine](#using-a-different-database-engine) at the bottom.
+Put that at the top of your query — it's **already waiting for you at the top of `query.sql`**, so leave it there. Or pick `northwindsupply` from the database dropdown in the SSMS toolbar before you run anything. Doing both is fine.
+
+`GO` isn't really SQL — it's SSMS's way of saying "send everything above this as one batch." `CREATE DATABASE` and `USE` each need their own batch, which is why `setup.sql` is full of them.
 
 ## The two tables
 
@@ -51,23 +68,23 @@ This is the actual SQL from `setup.sql` that creates them:
 
 ```sql
 -- One row per person with a northwindsupply account.
-CREATE TABLE users (
-  id          INTEGER      PRIMARY KEY,   -- unique id for each user
-  name        VARCHAR(100) NOT NULL,      -- the user's full name
-  email       VARCHAR(255) NOT NULL UNIQUE,
-  city        VARCHAR(100),
-  state       VARCHAR(2),
-  signup_date DATE         NOT NULL
+CREATE TABLE dbo.users (
+    id          INT          NOT NULL PRIMARY KEY,  -- unique id for each user
+    name        VARCHAR(100) NOT NULL,              -- the user's full name
+    email       VARCHAR(255) NOT NULL UNIQUE,
+    city        VARCHAR(100) NULL,
+    state       CHAR(2)      NULL,
+    signup_date DATE         NOT NULL
 );
 
 -- One row per order placed.
-CREATE TABLE orders (
-  id           INTEGER       PRIMARY KEY,  -- unique id for each order
-  user_id      INTEGER       NOT NULL,     -- which user placed it -> users.id
-  order_date   DATE          NOT NULL,
-  status       VARCHAR(20)   NOT NULL,     -- 'shipped', 'pending' or 'cancelled'
-  total_amount DECIMAL(10,2) NOT NULL,
-  FOREIGN KEY (user_id) REFERENCES users(id)
+CREATE TABLE dbo.orders (
+    id           INT           NOT NULL PRIMARY KEY, -- unique id for each order
+    user_id      INT           NOT NULL,             -- who placed it -> users.id
+    order_date   DATE          NOT NULL,
+    status       VARCHAR(20)   NOT NULL,             -- shipped / pending / cancelled
+    total_amount DECIMAL(10,2) NOT NULL,
+    CONSTRAINT FK_orders_users FOREIGN KEY (user_id) REFERENCES dbo.users(id)
 );
 ```
 
@@ -118,32 +135,41 @@ All of it, so you can design your query against what's actually there — and ch
 
 ## Exploring it yourself
 
-Open an interactive session:
+In a New Query window:
 
-```bash
-sqlite3 northwindsupply.db
+```sql
+USE northwindsupply;
+GO
+
+SELECT * FROM users;
+SELECT * FROM orders;
 ```
 
-| Command | Does |
-| --- | --- |
-| `.tables` | List the tables |
-| `.schema users` | Show a table's columns |
-| `.headers on` | Show column names in output — **turn this on before capturing output** |
-| `.mode column` | Line the output up in columns |
-| `.read query.sql` | Run the query you saved in `query.sql` |
-| `.quit` | Exit |
+Handy in SSMS:
 
-Broke something? `bash setup.sh` again — it drops and rebuilds from scratch every time.
+| Shortcut | Does |
+| --- | --- |
+| **F5** | Execute. Highlight part of the script first and F5 runs only that part. |
+| **Ctrl+D** | Results to grid (the default) |
+| **Ctrl+T** | Results to text — easier to copy into Markdown |
+| **Ctrl+Shift+C** | Copy selected grid cells **with** column headers |
+| **F8** | Show/hide Object Explorer |
+
+Broke something? Just run `setup.sql` again. It drops and rebuilds from scratch every time.
 
 ---
 
 ## Capturing your output
 
-Write your query in `query.sql`, then run it with headers on and copy the result — column names and all — into the **Output** section of `submission.md`:
+Write your query in `query.sql`, run it, then copy the result — **column headers included** — into the **Output** section of `submission.md`.
 
-```bash
-sqlite3 -header -column northwindsupply.db < query.sql
-```
+The cleanest way to get something that pastes nicely:
+
+1. Press **Ctrl+T** (Results to Text).
+2. Press **F5** to run your query.
+3. Select the output in the Results pane and copy it.
+
+Alternatively, leave results in the grid, select the rows, and use **Ctrl+Shift+C** (Copy with Headers) — or right-click the grid → **Copy with Headers**. Plain Ctrl+C drops the headers, which is why your paste comes out missing the column names.
 
 Paste the real output. Don't retype it from memory or write what you expect it to be — it has to match what the query actually returned. You have the full data above, so you can check it yourself before you submit.
 
@@ -165,6 +191,19 @@ Paste the real output. Don't retype it from memory or write what you expect it t
 
 ---
 
+## Troubleshooting
+
+| Error / symptom | What it means |
+| --- | --- |
+| `Invalid object name 'users'` | You're in the wrong database. Run `USE northwindsupply;` or pick it from the toolbar dropdown. |
+| `Database 'northwindsupply' does not exist` | `setup.sql` hasn't run yet, or it errored partway. Run it again and read the Messages tab. |
+| `Incorrect syntax near 'GO'` | You pasted into something that isn't SSMS. `GO` is an SSMS instruction, not SQL. |
+| `Cannot drop table ... referenced by a FOREIGN KEY` | You're dropping `users` before `orders`. `setup.sql` already handles the order — run the whole file rather than parts of it. |
+| My pasted output has no column names | Use Ctrl+T, or Ctrl+Shift+C instead of Ctrl+C. |
+| `COUNT` returned one row for everything | Worth re-reading the assignment: *group the results by user.* |
+
+---
+
 ## Submitting
 
 Work on your own branch and open a pull request. Do not commit to `main`.
@@ -177,56 +216,48 @@ git commit -m "Task 1: SQL JOIN query — <your name>"
 git push -u origin assessment-2/<your-name>
 ```
 
-Don't commit `northwindsupply.db` — it's gitignored on purpose. Everyone builds their own from `setup.sql`.
-
 Full instructions are in [SUBMITTING.md](../../SUBMITTING.md) at the repo root.
 
 ---
 
-## Using a different database engine
-
-`setup.sql` is portable — the same file works on all three.
+## No SSMS on your machine?
 
 <details>
-<summary><strong>PostgreSQL</strong></summary>
+<summary><strong>SQLite, PostgreSQL or MySQL instead</strong></summary>
+
+Use [`setup-sqlite.sql`](setup-sqlite.sql) rather than `setup.sql`. It builds the same two tables with the same data, minus the SQL Server–specific `CREATE DATABASE`, `USE` and `GO` statements.
+
+**SQLite** — there are helper scripts that do it in one command:
+
+```bash
+cd assessment-2/task-1
+bash setup.sh          # Windows PowerShell: .\setup.ps1
+```
+
+Or by hand:
+
+```bash
+sqlite3 northwindsupply.db < setup-sqlite.sql
+```
+
+Capture output with `sqlite3 -header -column northwindsupply.db < query.sql`. Note that `query.sql` ships with `USE northwindsupply;` and `GO` at the top for SSMS — delete those two lines if you're on SQLite, since neither statement exists there.
+
+**PostgreSQL:**
 
 ```bash
 createdb northwindsupply
-psql northwindsupply -f setup.sql
-psql northwindsupply
+psql northwindsupply -f setup-sqlite.sql
 ```
 
-One difference: `INTEGER PRIMARY KEY` doesn't auto-increment in Postgres the way it does in SQLite. That doesn't matter here — `setup.sql` supplies every `id` explicitly.
-
-</details>
-
-<details>
-<summary><strong>MySQL / MariaDB</strong></summary>
+**MySQL / MariaDB:**
 
 ```bash
 mysql -u root -e "CREATE DATABASE northwindsupply;"
-mysql -u root northwindsupply < setup.sql
-mysql -u root northwindsupply
+mysql -u root northwindsupply < setup-sqlite.sql
 ```
 
-One difference: the foreign key is only enforced if the storage engine is InnoDB. It's the default on any current version, so you shouldn't have to do anything.
+**Nothing installed at all:** paste `setup-sqlite.sql` into a browser SQL sandbox such as [SQLite Online](https://sqliteonline.com/) or [DB Fiddle](https://www.db-fiddle.com/), run it, then write your query in the same window.
+
+On any engine, check your setup with `SELECT COUNT(*) FROM users;` (expect 8) and `SELECT COUNT(*) FROM orders;` (expect 19).
 
 </details>
-
-<details>
-<summary><strong>No database installed at all</strong></summary>
-
-Paste the contents of `setup.sql` into a browser-based SQL sandbox such as [SQLite Online](https://sqliteonline.com/) or [DB Fiddle](https://www.db-fiddle.com/), run it, then write your query in the same window.
-
-This works fine for the assessment. The only thing you lose is the `sqlite3 -header -column` one-liner for capturing output — you'll copy the result out of the browser instead. Make sure the column headers come with it.
-
-</details>
-
-**Checking your setup worked, on any engine:**
-
-```sql
-SELECT COUNT(*) FROM users;    -- expect 8
-SELECT COUNT(*) FROM orders;   -- expect 19
-```
-
-Those two numbers mean your database is identical to everyone else's, so your output can be compared directly against the answer key.

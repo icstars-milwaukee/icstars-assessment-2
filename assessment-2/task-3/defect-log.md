@@ -5,25 +5,27 @@
 **System under test:** Riverside Community Association RSVP Portal — `scenario/rsvp-portal/index.html`
 **Release context:** v1 in staging, meetup is Saturday October 11, not yet public
 
-> **Confirmed defect you must log:** *Every RSVP shows the same confirmation code.* Submit an RSVP, note the code, click "Submit another," submit a different RSVP. Both show the same code. The door volunteer can't tell two attendees apart.
->
-> Reproduce it yourself before you write it up. **There is more than one defect in this build** — log any others you find in the extra blocks below.
+> **This build has defects in it.** Finding them is the task — nobody is going to tell you where they are or how many there are. Log every one you find, to the standard below.
 
 ---
 
 ## Summary table
 
-One row per defect. At least one required; add rows for any others you find.
+One row per defect. Add rows as you need them.
 
 | ID | Title | Severity | Priority | Status | Found in | Reported by | Owner | Date found | Linked test case |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| DEF-001 | | | | | | | | | |
+| | | | | | | | | | |
 | | | | | | | | | | |
 | | | | | | | | | | |
 
 ---
 
-## DEF-001 —
+## Detail blocks
+
+**Copy the block below once for each defect you log.** Number them `DEF-001`, `DEF-002`, and so on, and make sure each one has a matching row in the summary table above.
+
+### DEF-001 —
 
 | Field | Value |
 | --- | --- |
@@ -43,7 +45,7 @@ One row per defect. At least one required; add rows for any others you find.
 | Linked test case | TC- |
 | Reproducibility | Always / Intermittent (n of 10) / Once |
 
-### Steps to reproduce
+#### Steps to reproduce
 
 Numbered, with the literal values you typed. Someone who has never seen this defect must be able to follow these and hit it.
 
@@ -52,37 +54,37 @@ Numbered, with the literal values you typed. Someone who has never seen this def
 3.
 4.
 
-### Expected result
+#### Expected result
 
 *What should have happened. Quote the requirement it violates.*
 
 >
 
-### Actual result
+#### Actual result
 
 *What actually happened. Be specific — exact on-screen text, not "it didn't work."*
 
 >
 
-### Evidence
+#### Evidence
 
 *A screenshot, the exact text you saw, or anything the browser Console showed. Describe what you'd attach.*
 
 >
 
-### Root cause
+#### Root cause
 
 *Optional. If you looked at the source and found it, say so — and label it a hypothesis if you're not certain.*
 
 >
 
-### Fix
+#### Fix
 
 *What change would resolve it.*
 
 >
 
-### Verification
+#### Verification
 
 *Who retests, on what build, and what result would close this out.*
 
@@ -90,11 +92,15 @@ Numbered, with the literal values you typed. Someone who has never seen this def
 
 ---
 
-## DEF-002 — *(if you found another)*
+<!-- ==========================================================================
+     Copy everything between these comment markers to log another defect.
+     Renumber the ID, and add a row to the summary table at the top.
+
+### DEF-00N —
 
 | Field | Value |
 | --- | --- |
-| Defect ID | DEF-002 |
+| Defect ID | DEF-00N |
 | Title | |
 | Severity | |
 | Severity justification | |
@@ -110,75 +116,39 @@ Numbered, with the literal values you typed. Someone who has never seen this def
 | Linked test case | TC- |
 | Reproducibility | |
 
-### Steps to reproduce
+#### Steps to reproduce
 
 1.
 2.
 3.
 
-### Expected result
+#### Expected result
 
 >
 
-### Actual result
+#### Actual result
 
 >
 
-### Evidence
+#### Evidence
 
 >
 
-### Fix
+#### Root cause
+
+>
+
+#### Fix
+
+>
+
+#### Verification
 
 >
 
 ---
 
-## DEF-003 — *(if you found another)*
-
-| Field | Value |
-| --- | --- |
-| Defect ID | DEF-003 |
-| Title | |
-| Severity | |
-| Severity justification | |
-| Priority | |
-| Priority justification | |
-| Status | |
-| Reported by | |
-| Date found | |
-| Owner | |
-| Environment | |
-| Build / file | |
-| Linked requirement | REQ- |
-| Linked test case | TC- |
-| Reproducibility | |
-
-### Steps to reproduce
-
-1.
-2.
-3.
-
-### Expected result
-
->
-
-### Actual result
-
->
-
-### Evidence
-
->
-
-### Fix
-
->
-
-<!-- Copy a block above and renumber if you found more than three. -->
-
----
+     ========================================================================== -->
 
 ## Tracking this log
 
@@ -190,7 +160,7 @@ Numbered, with the literal values you typed. Someone who has never seen this def
 
 >
 
-**If you logged more than one defect, which gets fixed first and why?**
+**If you logged more than one, which gets fixed first and why?**
 
 Ranking them is the part that makes a log useful to a developer with three days left.
 

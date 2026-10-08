@@ -8,11 +8,9 @@
 
 ## Output
 
-Paste the exact output of your query here, column headers included. Run it with headers on so the column names come through:
+Paste the exact output of your query here, **column headers included.**
 
-```
-sqlite3 -header -column northwindsupply.db < query.sql
-```
+In SSMS: press **Ctrl+T** (Results to Text), then **F5** to run, then copy the Results pane. If you'd rather stay in the grid, select your rows and press **Ctrl+Shift+C** (Copy with Headers) — plain Ctrl+C drops the column names, which is the usual reason a paste comes out nameless.
 
 ```
 

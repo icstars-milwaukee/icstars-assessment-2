@@ -33,28 +33,26 @@ Session and dietary notes are **optional** by design. There is no backend in v1 
 
 ## Your assignment
 
-### 1. Write 3 test cases
+### 1. Write test cases
 
-In Given/When/Then format, in [`test-plan.md`](test-plan.md). They must cover **at least three different requirements** from the table above — not three angles on the same one.
+In Given/When/Then format, in [`test-plan.md`](test-plan.md), each one traced to a requirement.
 
-Which three you pick is part of what's being assessed. Six requirements and only three cases means choosing, and the reviewer will look at whether you went after the things most likely to hurt a real attendee on Saturday.
+**How many and which ones is your call** — and it's part of what's being assessed. There are six requirements. Decide what needs testing to be able to stand behind a release decision on Saturday, and be ready to defend what you chose to cover and what you left alone. The traceability matrix at the end of the template will make your coverage obvious either way, including the gaps.
 
-### 2. Log at least one defect
+### 2. Log the defects you find
 
-In [`defect-log.md`](defect-log.md). To guarantee you have one, here's a confirmed defect to write up:
+In [`defect-log.md`](defect-log.md), each one written up in full.
 
-> **Confirmed defect:** *Every RSVP shows the same confirmation code.* Submit an RSVP, note the confirmation code, click "Submit another," and submit a different RSVP. Both show the same code. The door volunteer can't tell two attendees apart.
+**This build has defects in it.** Finding them is the task — nobody is going to tell you where they are or how many there are. A log with nothing in it means either the build is perfect or the testing wasn't thorough, and your reviewer will know which.
 
-Reproduce it yourself first, then log it in full. Which requirement does it violate?
-
-**There is more than one defect in this build.** If you find others, log them too — `defect-log.md` has room for a second and third block. Finding real defects beyond the one you were handed is the strongest thing you can put in this submission.
+Log everything you find, to the same standard, however many that turns out to be.
 
 ## What you submit
 
 | File | What goes in it |
 | --- | --- |
-| [`test-plan.md`](test-plan.md) | 3 test cases, plus scope, environment and a traceability table |
-| [`defect-log.md`](defect-log.md) | Your defect log — the confirmed defect above, plus any others you find |
+| [`test-plan.md`](test-plan.md) | Your test cases, plus scope, environment, a release recommendation and a traceability table |
+| [`defect-log.md`](defect-log.md) | Your defect log |
 
 Fill those in — don't create new files. Clean reference copies of both templates are in [`templates/`](templates) if you wreck your working copy.
 
@@ -62,13 +60,15 @@ Fill those in — don't create new files. Clean reference copies of both templat
 
 ## How to test a form like this
 
-**Try to break it, not to use it.** Anyone can fill the form in correctly. Submit it empty. Put `99` in the guests field. Put `not-an-email` in the email field. Leave the session on "-- Select a session --" and see what the confirmation says. A test that passes tells you less than one that fails.
+**Try to break it, not to use it.** Anyone can fill the form in correctly. Submit it empty. Put `99` in the guests field. Put `not-an-email` in the email field. Leave the session on "-- Select a session --" and read what the confirmation says. A test that passes tells you less than one that fails.
 
 **Open developer tools.** Right-click → Inspect, or F12. The Console tab shows JavaScript errors you'd otherwise never see; the Elements tab lets you watch the page change as you submit. Never opened them? Now's the moment — it's a QA skill in itself.
 
-**Check the hints against the behavior.** The form makes promises in its own labels and hint text. "0–5 allowed" under the guests field is a promise. The red `*` next to a label is a promise. Check each one.
+**Check the app's promises against its behavior.** The form makes claims in its own labels and hint text. "0–5 allowed" under the guests field is a promise. The red `*` next to a label is a promise. Check each one, one at a time.
 
 **Read what the confirmation actually says**, character by character, against what you typed. Not "looks right" — *is* it right?
+
+**Submit more than once.** Some things only go wrong the second time. The "Submit another" link is there; use it.
 
 **Reading the source is fair game.** It's one file; open it in your editor. But a defect you found in the code still has to be written up with browser steps your reviewer can follow — "line 228 hardcodes it" isn't a reproduction, it's a root cause.
 
@@ -105,21 +105,24 @@ Two fields people routinely confuse:
 
 They are not the same and they don't always match. Think about the three-days-to-the-event context when you set priority — and be ready to defend both numbers. A defect that merely looks untidy and one that sends 40 unexpected people to a hall with 30 chairs are not the same severity, even if both are one-line fixes.
 
+If you log more than one, rank them. A developer with three days left needs to know what to fix first.
+
 ---
 
 ## How this is graded
 
 **Proficient:**
-- **At least 3 test cases**, each tracing to a specific requirement, covering at least 3 different requirements
-- **One defect logged with details.** Reproduction steps, expected vs. actual, severity, priority, environment, and owner all present.
+- **Test cases in Given/When/Then format, each tracing to a specific requirement.** Enough coverage to support the release decision you make.
+- **Defects logged with details.** Reproduction steps, expected vs. actual, severity, priority, environment, and owner all present on each one.
 - **Captured in the provided template.** Use `test-plan.md` and `defect-log.md` as given.
 
 **Common errors that cost points:**
 - Test cases vague or incomplete — no literal test data, or an expected result nobody else could check
 - No connection to requirements — cases that don't trace back to a REQ id
 - Defect missing critical fields — most often severity, priority, or the expected/actual pair
+- Coverage that only exercises the happy path
 
-**Going beyond proficient:** additional real defects, logged to the same standard, with severity you can justify.
+**Going beyond proficient:** thorough coverage, defects nobody pointed you at, severity you can justify, and a release recommendation you can defend.
 
 ---
 

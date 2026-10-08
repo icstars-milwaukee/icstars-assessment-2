@@ -45,7 +45,7 @@ Each task folder has its own README with the assignment and the grading criteria
 
 Two things not to commit:
 
-- **`northwindsupply.db`** — gitignored on purpose. Everyone builds their own from `setup.sql`.
+- **`northwindsupply.db`** — if you took the SQLite fallback route for Task 1, that generated file is gitignored on purpose. Everyone builds their own database locally; nobody commits one.
 - **Any change to `scenario/rsvp-portal/index.html`** — Task 3 assesses that app. If you modify it, your findings stop being reproducible by your reviewer, and the reviewer checks. If you've edited it by accident: `git checkout scenario/`
 
 ### 4. Commit as you go

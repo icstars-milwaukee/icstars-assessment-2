@@ -4,7 +4,7 @@
 | --- | --- | --- |
 | [Task 1 — SQL JOIN Query](task-1) | DA.SK1, DA.SK2, DA.SK3 | SQL query + its real output + a note explaining the query's purpose |
 | [Task 2 — SDLC Diagram](task-2) | SD.KU1, SD.SK1, SD.SK2 | Completed swimlane diagram with annotated phases |
-| [Task 3 — Test Plan + Defect Log](task-3) | QA.SK1, QA.SK2 | Test plan with 3 test cases + a defect log, against the [RSVP portal](../scenario) |
+| [Task 3 — Test Plan + Defect Log](task-3) | QA.SK1, QA.SK2 | Test plan + defect log for the [RSVP portal](../scenario) |
 
 Open the task folder and read its README before you start. Submission instructions for all three are in [SUBMITTING.md](../SUBMITTING.md).
 
@@ -32,7 +32,7 @@ You get a blank swimlane template. You work out the phases, put them in order, s
 
 You get a **working web app** — the [Riverside Community Association RSVP portal](../scenario) — six requirements the client asked for, and a deadline: the meetup is Saturday and this build hasn't gone public yet. Open the app in your browser and try to break it.
 
-You write three Given/When/Then test cases traced to those requirements, then log what you find. One defect is confirmed for you so you're guaranteed something to write up. **There are others in the build** — finding and logging those is how you go past proficient.
+You write Given/When/Then test cases traced to those requirements, then log every defect you find. **How much to cover and what to go after is your call** — that judgment is part of what's assessed, and the traceability matrix will make your coverage plain either way. Nobody tells you where the defects are or how many there are.
 
 This is the only task with a scenario app. Tasks 1 and 2 don't use it.
 

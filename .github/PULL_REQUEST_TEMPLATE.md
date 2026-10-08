@@ -26,19 +26,25 @@
 
 ### Task 3 — Test Plan + Defect Log (QA.SK1, QA.SK2)
 
-- [ ] 3 test cases written in Given/When/Then, covering at least 3 different requirements
+- [ ] Test cases written in Given/When/Then
 - [ ] Each case traces to a specific REQ id
 - [ ] Test data is literal values, not descriptions
-- [ ] At least one defect logged with every field filled
+- [ ] My coverage goes beyond the happy path
+- [ ] Every defect I found is logged with every field filled
 - [ ] Every defect has both expected **and** actual results
 - [ ] Severity and priority both set, each justified
-- [ ] Traceability matrix complete, including untested rows
+- [ ] Traceability matrix complete, with "not tested" where that's the truth
 - [ ] Release recommendation answered
 - [ ] I did not modify `scenario/rsvp-portal/index.html`
 
-**How many defects did you find and log?**
+**What did you decide to cover, and what did you leave alone?**
 
 >
+
+**Which defect would you have fixed first, and why?**
+
+>
+
 
 
 ---

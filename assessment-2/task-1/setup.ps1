@@ -1,8 +1,8 @@
 # Builds the northwindsupply SQLite database for Assessment 2 / Task 1.
 # Run from the task-1 folder:  .\setup.ps1
 #
-# All this does is feed setup.sql to sqlite3. You can do it by hand instead:
-#   Get-Content setup.sql -Raw | sqlite3 northwindsupply.db
+# All this does is feed setup-sqlite.sql to sqlite3. You can do it by hand instead:
+#   Get-Content setup-sqlite.sql -Raw | sqlite3 northwindsupply.db
 
 $ErrorActionPreference = "Stop"
 
@@ -17,7 +17,7 @@ if (-not (Get-Command sqlite3 -ErrorAction SilentlyContinue)) {
 # Start clean so re-running is always safe.
 if (Test-Path $db) { Remove-Item $db -Force }
 
-Get-Content (Join-Path $here "setup.sql") -Raw | sqlite3 $db
+Get-Content (Join-Path $here "setup-sqlite.sql") -Raw | sqlite3 $db
 
 Write-Host "Created $db"
 Write-Host ""

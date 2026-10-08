@@ -20,11 +20,11 @@
 
 ## 1. Scope
 
-**In scope** — what these tests cover:
+**In scope** — what your testing covers:
 
 >
 
-**Out of scope** — what they deliberately do not cover, and why:
+**Out of scope** — what it deliberately does not cover, and why:
 
 >
 
@@ -42,17 +42,15 @@
 
 ## 3. Test data
 
-Literal values, not descriptions. These are the values your reviewer will type in to reproduce your cases.
+Literal values, not descriptions. These are the values your reviewer will type in to reproduce your cases. Add rows for whatever else you used.
 
 | Field | Value you used |
 | --- | --- |
-| Full name | |
-| Email — valid | |
-| Email — invalid | |
-| Guests — in range | |
-| Guests — out of range | |
-| Session | |
-| Dietary notes | |
+| | |
+| | |
+| | |
+| | |
+| | |
 
 ## 4. Entry / exit criteria
 
@@ -68,7 +66,7 @@ Literal values, not descriptions. These are the values your reviewer will type i
 
 ## Test cases
 
-Three required, covering **at least three different requirements.**
+**Copy the block below once for each test case you write.** Number them `TC-001`, `TC-002`, and so on. How many you write, and which requirements you go after, is your call — the traceability matrix further down will show your coverage.
 
 ### TC-001 —
 
@@ -100,11 +98,15 @@ Three required, covering **at least three different requirements.**
 
 ---
 
-### TC-002 —
+<!-- ==========================================================================
+     Copy everything between these comment markers to add another test case.
+     Renumber the ID, and remember to add it to the traceability matrix.
+
+### TC-00N —
 
 | Field | Value |
 | --- | --- |
-| Test case ID | TC-002 |
+| Test case ID | TC-00N |
 | Traces to | REQ- |
 | Type | |
 | Priority | |
@@ -130,64 +132,7 @@ Three required, covering **at least three different requirements.**
 
 ---
 
-### TC-003 —
-
-| Field | Value |
-| --- | --- |
-| Test case ID | TC-003 |
-| Traces to | REQ- |
-| Type | |
-| Priority | |
-| Preconditions | |
-| Test data | |
-
-**Given**
-**When**
-**Then**
-
-| Step | Action | Expected result |
-| --- | --- | --- |
-| 1 | | |
-| 2 | | |
-| 3 | | |
-
-| Field | Value |
-| --- | --- |
-| Actual result | |
-| Status | |
-| Executed by / date | |
-| Defect raised | |
-
----
-
-### TC-004 — *(optional, copy this block for more)*
-
-| Field | Value |
-| --- | --- |
-| Test case ID | TC-004 |
-| Traces to | REQ- |
-| Type | |
-| Priority | |
-| Preconditions | |
-| Test data | |
-
-**Given**
-**When**
-**Then**
-
-| Step | Action | Expected result |
-| --- | --- | --- |
-| 1 | | |
-| 2 | | |
-
-| Field | Value |
-| --- | --- |
-| Actual result | |
-| Status | |
-| Executed by / date | |
-| Defect raised | |
-
----
+     ========================================================================== -->
 
 ## Execution summary
 
@@ -209,7 +154,7 @@ This is the question a test plan exists to answer. Give a recommendation, not a 
 
 ## Traceability matrix
 
-Every requirement you tested needs a test case, and every test case needs to point back at a requirement. Fill in the rows you covered; for rows you didn't cover, write "not tested" rather than leaving them blank — an untested requirement is information your reviewer needs.
+Every requirement you tested needs a test case, and every test case needs to point back at a requirement. For rows you didn't cover, write **"not tested"** rather than leaving them blank — an untested requirement is information your reviewer needs, and hiding it is worse than having it.
 
 | Requirement | Test case(s) | Status | Defect |
 | --- | --- | --- | --- |
@@ -221,6 +166,8 @@ Every requirement you tested needs a test case, and every test case needs to poi
 | REQ-06 | | | |
 
 **Which requirements did you leave untested, and why those?**
+
+A deliberate decision not to test something, with a reason, is a legitimate testing choice. Running out of time is also a real answer — say so.
 
 >
 
@@ -238,12 +185,13 @@ Being unsure whether something is a defect is worth writing down. The judgment c
 
 ## Checklist before you open your pull request
 
-- [ ] 3 test cases written, covering at least 3 different requirements
+- [ ] Every case is in Given/When/Then format
 - [ ] Every case traces to a specific REQ id
 - [ ] Every case has literal test data, not a description
 - [ ] Every expected result is checkable by someone who didn't write it
 - [ ] One behavior per case — no "and" hiding in a **When**
+- [ ] My coverage goes beyond the happy path
 - [ ] Scope, environment and test data sections filled in
 - [ ] Release recommendation answered
-- [ ] Traceability matrix complete, including untested rows
+- [ ] Traceability matrix complete, with "not tested" where that's the truth
 - [ ] Every defect found is logged in `defect-log.md` and referenced here

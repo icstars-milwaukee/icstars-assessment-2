@@ -2,8 +2,8 @@
 # Builds the northwindsupply SQLite database for Assessment 2 / Task 1.
 # Run from the task-1 folder:  bash setup.sh
 #
-# All this does is feed setup.sql to sqlite3. You can do it by hand instead:
-#   sqlite3 northwindsupply.db < setup.sql
+# All this does is feed setup-sqlite.sql to sqlite3. You can do it by hand instead:
+#   sqlite3 northwindsupply.db < setup-sqlite.sql
 
 set -euo pipefail
 
@@ -21,7 +21,7 @@ fi
 # Start clean so re-running is always safe.
 rm -f "$DB"
 
-sqlite3 "$DB" < "$HERE/setup.sql"
+sqlite3 "$DB" < "$HERE/setup-sqlite.sql"
 
 echo "Created $DB"
 echo
