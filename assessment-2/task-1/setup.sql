@@ -8,7 +8,8 @@
      2. File > Open > File... and pick this file. (Or paste the whole thing
         into a New Query window.)
      3. Click Execute, or press F5.
-     4. Check the Messages tab - you should see the two row counts at the end.
+     4. Check the row counts at the end - they appear in the Results grid,
+        and again in the Messages tab.
 
    Running it again is always safe. It drops both tables and rebuilds them
    from scratch, so if you break something while experimenting, just re-run it.
@@ -129,10 +130,29 @@ GO
 
 
 /* ---------------------------------------------------------------------------
-   Check it worked. Look at the Messages tab for these two lines.
+   Check it worked. This prints two rows in the Results grid.
    --------------------------------------------------------------------------- */
-PRINT 'users rows (expect 8):    ' + CAST((SELECT COUNT(*) FROM dbo.users)  AS VARCHAR(10));
-PRINT 'orders rows (expect 19):  ' + CAST((SELECT COUNT(*) FROM dbo.orders) AS VARCHAR(10));
+SELECT 'users'  AS table_name, COUNT(*) AS row_count, 8  AS expected FROM dbo.users
+UNION ALL
+SELECT 'orders' AS table_name, COUNT(*) AS row_count, 19 AS expected FROM dbo.orders;
+GO
+
+
+/* ---------------------------------------------------------------------------
+   And the same thing in the Messages tab.
+
+   Note that the counts go into variables first. PRINT only accepts a scalar
+   expression, so putting a SELECT directly inside it fails with
+   "Subqueries are not allowed in this context."
+   --------------------------------------------------------------------------- */
+DECLARE @user_count  INT;
+DECLARE @order_count INT;
+
+SELECT @user_count  = COUNT(*) FROM dbo.users;
+SELECT @order_count = COUNT(*) FROM dbo.orders;
+
+PRINT 'users rows (expect 8):    ' + CAST(@user_count  AS VARCHAR(10));
+PRINT 'orders rows (expect 19):  ' + CAST(@order_count AS VARCHAR(10));
 GO
 
 

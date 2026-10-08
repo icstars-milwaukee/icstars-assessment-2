@@ -34,14 +34,21 @@ Everything you need to design your query is below. **[`setup.sql`](setup.sql) is
 1. Open **SQL Server Management Studio** and connect to your server.
 2. **File → Open → File…** and pick [`setup.sql`](setup.sql). (Or open a New Query window and paste the whole file in.)
 3. Click **Execute**, or press **F5**.
-4. Click the **Messages** tab. You should see:
+4. Check the row counts at the end. They show up in the **Results** grid:
+
+   | table_name | row_count | expected |
+   | --- | --- | --- |
+   | users | 8 | 8 |
+   | orders | 19 | 19 |
+
+   and again in the **Messages** tab:
 
    ```
    users rows (expect 8):    8
    orders rows (expect 19):  19
    ```
 
-If you see those two numbers, your database is built and identical to everyone else's.
+If `row_count` matches `expected` on both rows, your database is built and identical to everyone else's.
 
 ## ⚠️ `USE northwindsupply;` — the one that catches everybody
 
@@ -199,6 +206,7 @@ Paste the real output. Don't retype it from memory or write what you expect it t
 | `Database 'northwindsupply' does not exist` | `setup.sql` hasn't run yet, or it errored partway. Run it again and read the Messages tab. |
 | `Incorrect syntax near 'GO'` | You pasted into something that isn't SSMS. `GO` is an SSMS instruction, not SQL. |
 | `Cannot drop table ... referenced by a FOREIGN KEY` | You're dropping `users` before `orders`. `setup.sql` already handles the order — run the whole file rather than parts of it. |
+| `Subqueries are not allowed in this context` | You put a `SELECT` somewhere that only accepts a single value — most often inside `PRINT`. Put the result in a variable first: `DECLARE @n INT; SELECT @n = COUNT(*) FROM users; PRINT @n;` |
 | My pasted output has no column names | Use Ctrl+T, or Ctrl+Shift+C instead of Ctrl+C. |
 | `COUNT` returned one row for everything | Worth re-reading the assignment: *group the results by user.* |
 

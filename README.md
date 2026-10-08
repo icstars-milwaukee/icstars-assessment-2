@@ -65,7 +65,7 @@ Task 1 uses **SQL Server Management Studio** and the `northwindsupply` database.
 1. Open SSMS and connect to your server.
 2. **File → Open → File…** and pick [`assessment-2/task-1/setup.sql`](assessment-2/task-1/setup.sql).
 3. Press **F5** to execute.
-4. Check the **Messages** tab for `users rows (expect 8): 8` and `orders rows (expect 19): 19`.
+4. Check the row counts at the end — `users` should be 8 and `orders` should be 19. They appear in the **Results** grid and again in the **Messages** tab.
 
 If you see those two numbers, your database matches everyone else's.
 
