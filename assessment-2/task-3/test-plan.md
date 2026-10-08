@@ -49,7 +49,6 @@ Literal values, not descriptions. These are the values your reviewer will type i
 |Keyboard |Built in Dell Latitude 5420 |
 |Mouse/Trackpad |Logitech M100 |
 |Internet Connections |Built in Dell Latitude 5420 wifi adapter |
-|Audio |Built in Dell Latitude 5420 speakers |
 |Visual |Built in Dell Latitude 5420 screen |
 
 ## 4. Entry / exit criteria
@@ -73,11 +72,11 @@ Literal values, not descriptions. These are the values your reviewer will type i
 | Field | Value |
 | --- | --- |
 | Test case ID | TC-001 |
-| Traces to | REQ- |
-| Type | Positive / Negative / Boundary / Validation |
+| Traces to | REQ-001 |
+| Type | Validation |
 | Priority | High / Medium / Low |
-| Preconditions | |
-| Test data | |
+| Preconditions |Page is loaded and connected to internet |
+| Test data | Page shows confirmation of RSVP with information inputted. |
 
 **Given**
 **When**
@@ -85,16 +84,16 @@ Literal values, not descriptions. These are the values your reviewer will type i
 
 | Step | Action | Expected result |
 | --- | --- | --- |
-| 1 | | |
-| 2 | | |
-| 3 | | |
+| 1 |Name inputted |Name shown |
+| 2 |Number of guests entered |Number of guests shown |
+| 3 |Session inputted |Session shown |
 
 | Field | Value |
 | --- | --- |
-| Actual result | |
-| Status | Not run / Pass / Fail / Blocked |
-| Executed by / date | |
-| Defect raised | |
+| Actual result | It is shown |
+| Status | Pass |
+| Executed by / date |10/08/2026 |
+| Defect raised |None |
 
 ---
 
@@ -138,17 +137,17 @@ Literal values, not descriptions. These are the values your reviewer will type i
 
 | Status | Count | Cases |
 | --- | --- | --- |
-| Pass | | |
-| Fail | | |
-| Blocked | | |
-| **Total** | | |
+| Pass |1 |TC-001 |
+| Fail |0 |N/A |
+| Blocked |0 |N/A |
+| **Total** |1 pass |TC-001 |
 
 **The meetup is Saturday. Based on your results, would you release this build to the public? Why or why not?**
 
 This is the question a test plan exists to answer. Give a recommendation, not a summary — and if the answer is "not yet," say what specifically has to change first.
 
->
->
+>I do not have time to properly test to give a definite veredict on this, so far it does look okay but it is very possible that I haven't found something jarring due to lack of time.
+>I need more time.
 
 ---
 
